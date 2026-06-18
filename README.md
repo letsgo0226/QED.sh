@@ -1,108 +1,148 @@
 # QED.sh
 
-An experimental shell-based symbolic computing system that transforms natural language prompts into reproducible symbolic states through deterministic encoding, entropy analysis, and cryptographic mappings.
+**QED.sh** is an experimental shell-based symbolic computing system that transforms natural language prompts into reproducible program states.
+
+It encodes user input into an ACGT symbolic sequence, derives a cryptographic state hash, and generates a self-contained Python program that can reproduce a related symbolic continuation.
 
 ---
 
 ## Overview
 
-QED.sh explores the idea that any textual input can be transformed into a reproducible symbolic representation.
+QED.sh explores a simple idea:
+
+> A natural language prompt can be transformed into a deterministic symbolic state, and that state can generate executable code.
 
 The system performs:
 
-1. UTF-8 text encoding
-2. ACGT symbolic transformation
-3. Shannon entropy evaluation
-4. Cryptographic hashing
-5. Complex-coordinate projection
-6. Deterministic state generation
+1. Prompt input through shell
+2. UTF-8 to ACGT symbolic encoding
+3. SHA-256 state hashing
+4. Safe filename generation
+5. Python source-code generation
+6. JSON state output
+7. Printed generated code
 
-The resulting state is represented as a compact JSON object.
+The result is both:
 
-This project is intended as an experimental framework for symbolic computation, information theory, and reproducible state generation.
+- a symbolic state record
+- a generated Python program
 
 ---
 
-## Mathematical Structure
+## Core Concept
 
-Given a text prompt:
+Given an input prompt:
 
+```text
 P
+```
 
-the system generates a symbolic sequence:
+QED.sh converts it into an ACGT sequence:
 
+```text
 P → ACGT
+```
 
-and evaluates:
+Then it computes:
 
-Entropy
+```text
+Omega = SHA256(ACGT + P)
+```
 
-S = -Σ pᵢ log₂(pᵢ)
-
-where pᵢ denotes the frequency of each symbol.
-
-Hash Mapping
-
-G = SHA512(ACGT)
-
-where the SHA-512 digest is interpreted as a large integer.
-
-Symbolic Coordinate
-
-z = x + yi
-
-with
-
-x = L / bitlength(G)
-
-and
-
-y = 1 / (L + 1)
-
-where L is the sequence length.
-
-Projection
-
-ρ = 1/2 + i·log(G)
-
-This coordinate is used as a symbolic identifier within the framework.
+This `Omega` value is used as a deterministic identifier for the generated program.
 
 ---
 
-## Example
+## Generated Output
 
-Input
+Running QED.sh produces:
 
-Hello World
+1. A JSON object describing the generated state
+2. A `.py` file named from the prompt and hash
+3. The generated Python source code printed directly in the terminal
 
-Output
+Example JSON output:
 
+```json
 {
-  "kernel":"QED_META_OMEGA_OS",
-  "ACGT_length":44,
-  "entropy":1.98,
-  "GC":0.5,
-  "Hamiltonian_delta":0.0,
-  "rho":"1/2+709.81i",
-  "omega":"..."
+  "kernel": "QED_self_analytic_program_generator",
+  "Omega": "xxxxxxxxxxxxxxxx",
+  "output": "example_xxxxxxxx.py"
 }
+```
+
+The generated Python file can then be executed independently.
 
 ---
 
 ## Installation
 
-Alpine Linux / iSH
+### Alpine Linux / iSH
 
+```sh
 apk add --no-cache python3
+```
 
-Run
+### macOS / Linux
 
+```sh
+python3 --version
+```
+
+---
+
+## Usage
+
+```sh
+git clone https://github.com/letsgo0226/QED.sh.git
+cd QED.sh
+sh QED.sh
+```
+
+Or:
+
+```sh
 chmod +x QED.sh
 ./QED.sh
+```
 
-or
+When prompted:
 
-sh QED.sh
+```text
+SELF CODE>
+```
+
+enter any phrase, for example:
+
+```text
+Hello World
+```
+
+---
+
+## Example
+
+```text
+SELF CODE> Hello World
+```
+
+Possible output:
+
+```json
+{
+  "kernel": "QED_self_analytic_program_generator",
+  "Omega": "a1b2c3d4e5f6...",
+  "output": "Hello_World_a1b2c3d4.py"
+}
+```
+
+The system also prints:
+
+```text
+--- GENERATED CODE ---
+```
+
+followed by the full generated Python program.
 
 ---
 
@@ -110,11 +150,14 @@ sh QED.sh
 
 - Deterministic
 - Reproducible
-- Symbolic
-- Platform Independent
-- Human Readable
+- Minimal
+- Shell-compatible
+- iSH-friendly
+- Human-readable
+- Self-generating
+- Symbolic rather than empirical
 
-The same input always produces the same symbolic state.
+The same input always produces the same symbolic encoding and hash-derived state.
 
 ---
 
@@ -122,28 +165,39 @@ The same input always produces the same symbolic state.
 
 QED.sh is not presented as a proof of any mathematical conjecture.
 
-Concepts such as:
+Terms such as:
 
-- entropy
-- symbolic encoding
-- complex coordinates
-- cryptographic hashes
-- fixed-point representations
+- self-analytic continuation
+- symbolic state
+- ACGT encoding
+- Omega
+- cryptographic mapping
+- generated program
 
-are used as computational constructs within the framework.
+are used as computational and symbolic constructs.
 
-The project should be understood as an exploration of symbolic information processing rather than a formal theorem-proving system.
+This project should be understood as an experimental framework for symbolic computation, reproducible program generation, and computational metaphysics.
 
 ---
 
 ## Example Use Cases
 
 - Symbolic state generation
-- Information-theoretic experiments
-- Reproducible prompt fingerprints
+- Prompt fingerprinting
+- Self-generating code experiments
 - Educational demonstrations
+- Shell-based computational art
 - Computational metaphysics research
-- Digital art and generative systems
+- Minimal reproducible program systems
+
+---
+
+## File Structure
+
+```text
+QED.sh      # Main shell-based generator
+README.md   # Project documentation
+```
 
 ---
 

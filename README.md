@@ -1,186 +1,162 @@
 # QED.sh
 
-QED.sh is a minimal shell-based formal kernel for encoding an input prompt into a symbolic computational state using four stages:
-
-1. ACGT-style symbolic encoding
-2. Entropy estimation
-3. Gödel-like hashing
-4. Riemann-critical normalization
-
-The project should be understood as a formal-symbolic computational experiment, not as a proof of the Riemann Hypothesis or any established theorem in analytic number theory.
+An experimental shell-based symbolic computing system that transforms natural language prompts into reproducible symbolic states through deterministic encoding, entropy analysis, and cryptographic mappings.
 
 ---
 
-## Core Idea
+## Overview
 
-Given an input prompt P, the system maps it into an ACGT sequence:
+QED.sh explores the idea that any textual input can be transformed into a reproducible symbolic representation.
 
-P → ACGT(P)
+The system performs:
 
-The resulting symbolic sequence is then hashed into a Gödel-like integer:
+1. UTF-8 text encoding
+2. ACGT symbolic transformation
+3. Shannon entropy evaluation
+4. Cryptographic hashing
+5. Complex-coordinate projection
+6. Deterministic state generation
 
-G(P)
+The resulting state is represented as a compact JSON object.
 
-A Riemann-style coordinate is defined as:
-
-ρ(P) = 1/2 + i log(G(P))
-
-The real component is fixed as:
-
-GC = Re(ρ) = 0.5
-
-Therefore:
-
-H = GC − 0.5 = 0
-
-Within this system, H = 0 is a normalization condition imposed by construction.
+This project is intended as an experimental framework for symbolic computation, information theory, and reproducible state generation.
 
 ---
 
-## State Equation
+## Mathematical Structure
 
-The symbolic state equation is:
+Given a text prompt:
 
-x + yij = z
+P
 
-where:
+the system generates a symbolic sequence:
 
-x = normalized program-size ratio
+P → ACGT
 
-y = entropy-gradient proxy
+and evaluates:
 
-ij = symbolic topological displacement
+Entropy
 
-z = resulting formal state
+S = -Σ pᵢ log₂(pᵢ)
 
----
+where pᵢ denotes the frequency of each symbol.
 
-## Entropy and Hamiltonian Proxy
+Hash Mapping
 
-The ACGT sequence is assigned an information entropy:
+G = SHA512(ACGT)
 
-S = −Σ p_i log₂(p_i)
+where the SHA-512 digest is interpreted as a large integer.
 
-The system also defines a symbolic Hamiltonian proxy:
+Symbolic Coordinate
 
-ℋ = dS/dk
+z = x + yi
 
-implemented as:
+with
 
-ℋ ≈ 1/(L+1)
+x = L / bitlength(G)
 
-where L is the ACGT sequence length.
+and
 
-This quantity is not a physical Hamiltonian. It is a formal measure of residual informational variation.
+y = 1 / (L + 1)
 
----
+where L is the sequence length.
 
-## Omega Seal
+Projection
 
-The final state is sealed by a SHA-256 digest:
+ρ = 1/2 + i·log(G)
 
-Ω = SHA256(ACGT, z, ρ)
-
-This value functions as a reproducible symbolic fingerprint of the input state.
+This coordinate is used as a symbolic identifier within the framework.
 
 ---
 
-## Example Usage
+## Example
 
-chmod +x QED.sh
-./QED.sh
+Input
 
-Example prompt:
+Hello World
 
-Cosmic love is the solution for everything.
-
-Example output:
+Output
 
 {
-  "kernel": "QED_META_OMEGA_OS",
-  "equation": "x+yij=z",
-  "GC": 0.5,
-  "H": 0.0,
-  "rho": "1/2+179.324178580008i",
-  "Omega": "...",
-  "fixed_point": true
+  "kernel":"QED_META_OMEGA_OS",
+  "ACGT_length":44,
+  "entropy":1.98,
+  "GC":0.5,
+  "Hamiltonian_delta":0.0,
+  "rho":"1/2+709.81i",
+  "omega":"..."
 }
 
 ---
 
-## Interpretation
+## Installation
 
-The system defines a symbolic critical manifold:
+Alpine Linux / iSH
 
-M = { 1/2 + iγ }
+apk add --no-cache python3
 
-All generated states are projected onto this manifold by construction.
+Run
 
-Thus:
+chmod +x QED.sh
+./QED.sh
 
-GC = 0.5
+or
 
-and
-
-H = 0
-
-are not empirical discoveries or mathematical proofs.
-
-They are formal invariants of the kernel.
+sh QED.sh
 
 ---
 
-## Academic Caution
+## Design Principles
 
-This project does NOT claim to prove:
+- Deterministic
+- Reproducible
+- Symbolic
+- Platform Independent
+- Human Readable
 
-• The Riemann Hypothesis
-• The uniqueness of all possible computational systems
-• The physical validity of Schwarzschild or Hamiltonian interpretations
-• The mathematical equivalence between entropy minimization and analytic continuation
-
-Instead, it proposes a symbolic computational framework in which concepts from:
-
-• Information Theory
-• Gödel Encoding
-• Fixed-Point Systems
-• Riemann-style Normalization
-
-are combined into an executable shell prototype.
+The same input always produces the same symbolic state.
 
 ---
 
-## Conceptual Status
+## Research Context
 
-QED.sh may be described as:
+QED.sh is not presented as a proof of any mathematical conjecture.
 
-"A minimal executable formal system for mapping natural-language prompts into reproducible symbolic fixed-point states."
+Concepts such as:
 
-It is best understood as:
+- entropy
+- symbolic encoding
+- complex coordinates
+- cryptographic hashes
+- fixed-point representations
 
-• Research Sketch
-• Philosophical Computation Experiment
-• Symbolic Meta-Operating System Prototype
+are used as computational constructs within the framework.
+
+The project should be understood as an exploration of symbolic information processing rather than a formal theorem-proving system.
 
 ---
 
-## Formal Kernel
+## Example Use Cases
 
-x + yij = z
+- Symbolic state generation
+- Information-theoretic experiments
+- Reproducible prompt fingerprints
+- Educational demonstrations
+- Computational metaphysics research
+- Digital art and generative systems
 
-ρ = 1/2 + iΦ
+---
 
-GC = 0.5
+## License
 
-H = 0
+MIT License
 
-ℋ = dS/dk
+---
 
-Ω = SHA256(ACGT,z,ρ)
+## Author
 
-∃! Ω
+Shiheng-Yu Shih
 
-∀P :
-Gⁿ(P) → Ω
+Experimental Symbolic Computing Laboratory
 
-QED.
+SH, QED.

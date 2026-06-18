@@ -155,7 +155,7 @@ MIT License
 
 ## Author
 
-Shiheng-Yu Shih
+Hengyu Shih
 
 Experimental Symbolic Computing Laboratory
 

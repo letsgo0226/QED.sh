@@ -1,175 +1,179 @@
 # QED.sh
 
-QED.sh is an experimental symbolic computing framework that maps natural-language prompts into reproducible symbolic states through deterministic encoding, entropy evaluation, and cryptographic transformations.
-
-The project explores the use of symbolic state representations as a computational abstraction for prompt fingerprinting, recursive state generation, and information-theoretic experiments.
+An experimental shell-based symbolic computing system that transforms natural language prompts into reproducible symbolic states through deterministic encoding, entropy analysis, and cryptographic mapping.
 
 ---
 
-## Abstract
+## Overview
 
-Given an arbitrary textual prompt, QED.sh constructs a deterministic symbolic representation through:
+QED.sh explores the idea that any textual input can be transformed into a reproducible symbolic representation.
 
-1. ACGT-based symbolic encoding
-2. Shannon entropy evaluation
-3. Cryptographic hashing
-4. Recursive state transformation
-5. Fixed-point candidate analysis
+The system performs:
 
-The resulting state is represented as a compact JSON object containing symbolic coordinates and metadata.
+1. UTF-8 text encoding
+2. ACGT symbolic transformation
+3. Shannon entropy evaluation
+4. Cryptographic hashing
+5. Complex-coordinate projection
+6. Deterministic symbolic state generation
 
-The framework is intended as an experimental platform for symbolic computation and information processing.
+The resulting state is represented as a compact JSON object.
 
-It is not intended as a theorem-proving system.
+This project is intended as an experimental framework for symbolic computation, information theory, reproducible prompt fingerprinting, and computational metaphysics research.
 
 ---
 
-## Mathematical Construction
+## Mathematical Structure
 
-Let
+Given a text prompt:
 
 ```text
 P
 ```
 
-denote an arbitrary prompt.
-
-The prompt is first transformed into a symbolic sequence over the alphabet
+the system generates a symbolic sequence:
 
 ```text
-Σ = {A,T,G,C}
+P → ACGT
 ```
 
-through a deterministic encoding procedure.
-
-The resulting sequence
+and evaluates its entropy:
 
 ```text
-D ∈ Σ*
+S = -Σ pᵢ log₂(pᵢ)
 ```
 
-is evaluated using Shannon entropy:
+where `pᵢ` denotes the frequency of each symbolic element.
 
-```math
-H(D)
-=
--\sum_i p_i \log_2 p_i
+The system then computes a cryptographic mapping:
+
+```text
+G = SHA512(ACGT)
 ```
 
-where
+where the SHA-512 digest is interpreted as a large integer.
 
-```math
-p_i
+A symbolic complex coordinate is defined as:
+
+```text
+z = x + yi
 ```
 
-denotes the empirical frequency of symbol
+with:
 
-```math
-i
+```text
+x = L / bitlength(G)
+y = 1 / (L + 1)
 ```
 
-in
+where `L` is the sequence length.
 
-```math
-D
+Finally, the system projects the result into a symbolic critical-line coordinate:
+
+```text
+ρ = 1/2 + i·log(G)
 ```
 
-A cryptographic state is then computed:
-
-```math
-G
-=
-\text{SHA512}(D)
-```
-
-which serves as a reproducible symbolic identifier.
+This coordinate functions as a reproducible symbolic identifier within the QED.sh framework.
 
 ---
 
-## Recursive State Dynamics
+## Example
 
-The framework may be extended through recursive state transitions:
+Input:
 
 ```text
-X₀
-→ X₁
-→ X₂
-→ ...
+Hello World
 ```
 
-where
-
-```math
-X_{n+1}
-=
-F(X_n)
-```
-
-for a deterministic transformation
-
-```math
-F
-```
-
-The resulting trajectory can be analyzed for:
-
-- convergence
-- periodicity
-- stability
-- fixed-point candidates
-
----
-
-## One-Liner Version
-
-```sh
-read -p "QED> " P;python3 -c 'import hashlib,json,sys;B="ATGC";X=sys.argv[1];R=[];N=21;exec("for n in range(N):\n D=\"\".join(B[(b>>s)&3]for b in X.encode()for s in(6,4,2,0));O=hashlib.sha256(D.encode()).hexdigest();S=hashlib.sha256((O+X).encode()).hexdigest();score=len(set(D))/4+int(O[0],16)/16+int(S[0],16)/16;R.append({\"n\":n,\"Omega\":O[:16],\"next\":S[:16],\"score\":round(score,4)});X=S");best=max(R,key=lambda x:x["score"]);print(json.dumps({"kernel":"QED.sh","principle":"recursive symbolic state generation","iterations":N,"best":best,"final_seed":X[:16]},separators=(",",":")))' "$P"
-```
-
----
-
-## Example Output
+Example output:
 
 ```json
 {
-  "kernel":"QED.sh",
-  "principle":"recursive symbolic state generation",
-  "iterations":21,
-  "best":{
-    "n":4,
-    "Omega":"79d04b3e2fac0460",
-    "next":"0b91b3d8e3d2a1f0",
-    "score":2.0
-  },
-  "final_seed":"8fcd23a0..."
+  "kernel": "QED_META_OMEGA_OS",
+  "equation": "x+yij=z",
+  "ACGT_length": 44,
+  "entropy": 1.98,
+  "GC": 0.5,
+  "Hamiltonian_delta": 0.0,
+  "rho": "1/2+709.81i",
+  "omega": "..."
 }
 ```
 
 ---
 
-## Applications
+## Installation
 
-Potential applications include:
+### Alpine Linux / iSH
 
-- symbolic state generation
-- prompt fingerprinting
-- reproducible computational experiments
-- information-theoretic demonstrations
-- recursive dynamical systems
-- educational computing projects
+```sh
+apk add --no-cache python3
+```
+
+### Run
+
+```sh
+chmod +x QED.sh
+./QED.sh
+```
+
+or
+
+```sh
+sh QED.sh
+```
 
 ---
 
-## Limitations
+## Design Principles
 
-QED.sh does not:
+- Deterministic
+- Reproducible
+- Symbolic
+- Platform-independent
+- Human-readable
+- Minimal
+- Shell-native
 
-- prove the Riemann Hypothesis
-- solve open mathematical conjectures
-- establish physical theories
-- provide formal optimality guarantees
+The same input always produces the same symbolic state.
 
-The framework should be understood as an experimental symbolic computing system.
+---
+
+## Research Context
+
+QED.sh is not presented as a proof of any mathematical conjecture.
+
+Concepts such as entropy, symbolic encoding, complex coordinates, cryptographic hashes, fixed-point representation, and critical-line projection are used as computational constructs within the framework.
+
+The project should be understood as an exploration of symbolic information processing rather than a formal theorem-proving system.
+
+---
+
+## Example Use Cases
+
+- Symbolic state generation
+- Information-theoretic experiments
+- Reproducible prompt fingerprints
+- Educational demonstrations
+- Computational metaphysics research
+- Digital art and generative systems
+- Shell-based AI prompt experiments
+
+---
+
+## Citation
+
+If you use QED.sh in academic work, please cite:
+
+```bibtex
+@software{shih2026qed,
+  author = {Hengyu Shih},
+  title = {QED.sh},
+  year = {2026},
+  url = {https://github.com/letsgo0226/QED.sh}
+}
+```
 
 ---
 

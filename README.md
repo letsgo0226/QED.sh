@@ -1,6 +1,6 @@
 # QED.sh
 
-An experimental shell-based symbolic computing system that transforms natural language prompts into reproducible symbolic states through deterministic encoding, entropy analysis, and cryptographic mapping.
+An experimental shell-based symbolic computing system that transforms natural language prompts into reproducible symbolic states through deterministic encoding, entropy analysis, and cryptographic mappings.
 
 ---
 
@@ -15,11 +15,11 @@ The system performs:
 3. Shannon entropy evaluation
 4. Cryptographic hashing
 5. Complex-coordinate projection
-6. Deterministic symbolic state generation
+6. Deterministic state generation
 
 The resulting state is represented as a compact JSON object.
 
-This project is intended as an experimental framework for symbolic computation, information theory, reproducible prompt fingerprinting, and computational metaphysics research.
+This project is intended as an experimental framework for symbolic computation, information theory, and reproducible prompt-based state generation.
 
 ---
 
@@ -27,54 +27,40 @@ This project is intended as an experimental framework for symbolic computation, 
 
 Given a text prompt:
 
-```text
 P
-```
 
 the system generates a symbolic sequence:
 
-```text
 P → ACGT
-```
 
-and evaluates its entropy:
+and evaluates:
 
-```text
 S = -Σ pᵢ log₂(pᵢ)
-```
 
-where `pᵢ` denotes the frequency of each symbolic element.
+where pᵢ denotes the frequency of each symbol.
 
-The system then computes a cryptographic mapping:
+The system then computes:
 
-```text
 G = SHA512(ACGT)
-```
 
 where the SHA-512 digest is interpreted as a large integer.
 
-A symbolic complex coordinate is defined as:
+A symbolic coordinate is defined as:
 
-```text
 z = x + yi
-```
 
 with:
 
-```text
 x = L / bitlength(G)
 y = 1 / (L + 1)
-```
 
-where `L` is the sequence length.
+where L is the sequence length.
 
-Finally, the system projects the result into a symbolic critical-line coordinate:
+The projection is:
 
-```text
 ρ = 1/2 + i·log(G)
-```
 
-This coordinate functions as a reproducible symbolic identifier within the QED.sh framework.
+This coordinate is used as a symbolic identifier within the framework.
 
 ---
 
@@ -82,16 +68,12 @@ This coordinate functions as a reproducible symbolic identifier within the QED.s
 
 Input:
 
-```text
 Hello World
-```
 
-Example output:
+Output:
 
-```json
 {
   "kernel": "QED_META_OMEGA_OS",
-  "equation": "x+yij=z",
   "ACGT_length": 44,
   "entropy": 1.98,
   "GC": 0.5,
@@ -99,30 +81,23 @@ Example output:
   "rho": "1/2+709.81i",
   "omega": "..."
 }
-```
 
 ---
 
 ## Installation
 
-### Alpine Linux / iSH
+For Alpine Linux or iSH:
 
-```sh
 apk add --no-cache python3
-```
 
-### Run
+Run:
 
-```sh
 chmod +x QED.sh
 ./QED.sh
-```
 
-or
+or:
 
-```sh
 sh QED.sh
-```
 
 ---
 
@@ -131,10 +106,8 @@ sh QED.sh
 - Deterministic
 - Reproducible
 - Symbolic
-- Platform-independent
-- Human-readable
-- Minimal
-- Shell-native
+- Platform independent
+- Human readable
 
 The same input always produces the same symbolic state.
 
@@ -144,7 +117,7 @@ The same input always produces the same symbolic state.
 
 QED.sh is not presented as a proof of any mathematical conjecture.
 
-Concepts such as entropy, symbolic encoding, complex coordinates, cryptographic hashes, fixed-point representation, and critical-line projection are used as computational constructs within the framework.
+Concepts such as entropy, symbolic encoding, complex coordinates, cryptographic hashes, and fixed-point representations are used as computational constructs within the framework.
 
 The project should be understood as an exploration of symbolic information processing rather than a formal theorem-proving system.
 
@@ -158,22 +131,6 @@ The project should be understood as an exploration of symbolic information proce
 - Educational demonstrations
 - Computational metaphysics research
 - Digital art and generative systems
-- Shell-based AI prompt experiments
-
----
-
-## Citation
-
-If you use QED.sh in academic work, please cite:
-
-```bibtex
-@software{shih2026qed,
-  author = {Hengyu Shih},
-  title = {QED.sh},
-  year = {2026},
-  url = {https://github.com/letsgo0226/QED.sh}
-}
-```
 
 ---
 
@@ -185,8 +142,7 @@ MIT License
 
 ## Author
 
-Hengyu Shih
-
+Hengyu Shih  
 Experimental Symbolic Computing Laboratory
 
 SH, QED.

@@ -1,203 +1,175 @@
 # QED.sh
 
-**QED.sh** is an experimental shell-based symbolic computing system that transforms natural language prompts into reproducible program states.
+QED.sh is an experimental symbolic computing framework that maps natural-language prompts into reproducible symbolic states through deterministic encoding, entropy evaluation, and cryptographic transformations.
 
-It encodes user input into an ACGT symbolic sequence, derives a cryptographic state hash, and generates a self-contained Python program that can reproduce a related symbolic continuation.
-
----
-
-## Overview
-
-QED.sh explores a simple idea:
-
-> A natural language prompt can be transformed into a deterministic symbolic state, and that state can generate executable code.
-
-The system performs:
-
-1. Prompt input through shell
-2. UTF-8 to ACGT symbolic encoding
-3. SHA-256 state hashing
-4. Safe filename generation
-5. Python source-code generation
-6. JSON state output
-7. Printed generated code
-
-The result is both:
-
-- a symbolic state record
-- a generated Python program
+The project explores the use of symbolic state representations as a computational abstraction for prompt fingerprinting, recursive state generation, and information-theoretic experiments.
 
 ---
 
-## Core Concept
+## Abstract
 
-Given an input prompt:
+Given an arbitrary textual prompt, QED.sh constructs a deterministic symbolic representation through:
+
+1. ACGT-based symbolic encoding
+2. Shannon entropy evaluation
+3. Cryptographic hashing
+4. Recursive state transformation
+5. Fixed-point candidate analysis
+
+The resulting state is represented as a compact JSON object containing symbolic coordinates and metadata.
+
+The framework is intended as an experimental platform for symbolic computation and information processing.
+
+It is not intended as a theorem-proving system.
+
+---
+
+## Mathematical Construction
+
+Let
 
 ```text
 P
 ```
 
-QED.sh converts it into an ACGT sequence:
+denote an arbitrary prompt.
+
+The prompt is first transformed into a symbolic sequence over the alphabet
 
 ```text
-P → ACGT
+Σ = {A,T,G,C}
 ```
 
-Then it computes:
+through a deterministic encoding procedure.
+
+The resulting sequence
 
 ```text
-Omega = SHA256(ACGT + P)
+D ∈ Σ*
 ```
 
-This `Omega` value is used as a deterministic identifier for the generated program.
+is evaluated using Shannon entropy:
+
+```math
+H(D)
+=
+-\sum_i p_i \log_2 p_i
+```
+
+where
+
+```math
+p_i
+```
+
+denotes the empirical frequency of symbol
+
+```math
+i
+```
+
+in
+
+```math
+D
+```
+
+A cryptographic state is then computed:
+
+```math
+G
+=
+\text{SHA512}(D)
+```
+
+which serves as a reproducible symbolic identifier.
 
 ---
 
-## Generated Output
+## Recursive State Dynamics
 
-Running QED.sh produces:
+The framework may be extended through recursive state transitions:
 
-1. A JSON object describing the generated state
-2. A `.py` file named from the prompt and hash
-3. The generated Python source code printed directly in the terminal
+```text
+X₀
+→ X₁
+→ X₂
+→ ...
+```
 
-Example JSON output:
+where
+
+```math
+X_{n+1}
+=
+F(X_n)
+```
+
+for a deterministic transformation
+
+```math
+F
+```
+
+The resulting trajectory can be analyzed for:
+
+- convergence
+- periodicity
+- stability
+- fixed-point candidates
+
+---
+
+## One-Liner Version
+
+```sh
+read -p "QED> " P;python3 -c 'import hashlib,json,sys;B="ATGC";X=sys.argv[1];R=[];N=21;exec("for n in range(N):\n D=\"\".join(B[(b>>s)&3]for b in X.encode()for s in(6,4,2,0));O=hashlib.sha256(D.encode()).hexdigest();S=hashlib.sha256((O+X).encode()).hexdigest();score=len(set(D))/4+int(O[0],16)/16+int(S[0],16)/16;R.append({\"n\":n,\"Omega\":O[:16],\"next\":S[:16],\"score\":round(score,4)});X=S");best=max(R,key=lambda x:x["score"]);print(json.dumps({"kernel":"QED.sh","principle":"recursive symbolic state generation","iterations":N,"best":best,"final_seed":X[:16]},separators=(",",":")))' "$P"
+```
+
+---
+
+## Example Output
 
 ```json
 {
-  "kernel": "QED_self_analytic_program_generator",
-  "Omega": "xxxxxxxxxxxxxxxx",
-  "output": "example_xxxxxxxx.py"
+  "kernel":"QED.sh",
+  "principle":"recursive symbolic state generation",
+  "iterations":21,
+  "best":{
+    "n":4,
+    "Omega":"79d04b3e2fac0460",
+    "next":"0b91b3d8e3d2a1f0",
+    "score":2.0
+  },
+  "final_seed":"8fcd23a0..."
 }
 ```
 
-The generated Python file can then be executed independently.
+---
+
+## Applications
+
+Potential applications include:
+
+- symbolic state generation
+- prompt fingerprinting
+- reproducible computational experiments
+- information-theoretic demonstrations
+- recursive dynamical systems
+- educational computing projects
 
 ---
 
-## Installation
+## Limitations
 
-### Alpine Linux / iSH
+QED.sh does not:
 
-```sh
-apk add --no-cache python3
-```
+- prove the Riemann Hypothesis
+- solve open mathematical conjectures
+- establish physical theories
+- provide formal optimality guarantees
 
-### macOS / Linux
-
-```sh
-python3 --version
-```
-
----
-
-## Usage
-
-```sh
-git clone https://github.com/letsgo0226/QED.sh.git
-cd QED.sh
-sh QED.sh
-```
-
-Or:
-
-```sh
-chmod +x QED.sh
-./QED.sh
-```
-
-When prompted:
-
-```text
-SELF CODE>
-```
-
-enter any phrase, for example:
-
-```text
-Hello World
-```
-
----
-
-## Example
-
-```text
-SELF CODE> Hello World
-```
-
-Possible output:
-
-```json
-{
-  "kernel": "QED_self_analytic_program_generator",
-  "Omega": "a1b2c3d4e5f6...",
-  "output": "Hello_World_a1b2c3d4.py"
-}
-```
-
-The system also prints:
-
-```text
---- GENERATED CODE ---
-```
-
-followed by the full generated Python program.
-
----
-
-## Design Principles
-
-- Deterministic
-- Reproducible
-- Minimal
-- Shell-compatible
-- iSH-friendly
-- Human-readable
-- Self-generating
-- Symbolic rather than empirical
-
-The same input always produces the same symbolic encoding and hash-derived state.
-
----
-
-## Research Context
-
-QED.sh is not presented as a proof of any mathematical conjecture.
-
-Terms such as:
-
-- self-analytic continuation
-- symbolic state
-- ACGT encoding
-- Omega
-- cryptographic mapping
-- generated program
-
-are used as computational and symbolic constructs.
-
-This project should be understood as an experimental framework for symbolic computation, reproducible program generation, and computational metaphysics.
-
----
-
-## Example Use Cases
-
-- Symbolic state generation
-- Prompt fingerprinting
-- Self-generating code experiments
-- Educational demonstrations
-- Shell-based computational art
-- Computational metaphysics research
-- Minimal reproducible program systems
-
----
-
-## File Structure
-
-```text
-QED.sh      # Main shell-based generator
-README.md   # Project documentation
-```
+The framework should be understood as an experimental symbolic computing system.
 
 ---
 

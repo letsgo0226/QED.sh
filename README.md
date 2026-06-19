@@ -1,232 +1,297 @@
 # QED.sh
 
-## A Deterministic Symbolic Encoding Framework for Reproducible Prompt-State Generation
+A Minimal Framework for Reproducible Symbolic State Generation and Program Synthesis
 
 ---
 
 ## Abstract
 
-QED.sh is an experimental shell-based framework that maps natural-language inputs into deterministic symbolic states through a sequence of encoding, entropy estimation, cryptographic hashing, and coordinate projection procedures.
+QED.sh is an experimental shell-based framework that investigates the transformation of natural-language prompts into deterministic symbolic states and executable program artifacts.
 
-The framework is designed as a computational study of reproducible information representations. Given an arbitrary textual prompt, the system generates a symbolic state that is invariant under repeated execution, assuming identical input and implementation conditions.
+The system maps textual input into a symbolic representation based on a four-symbol alphabet (A, T, G, C), applies cryptographic hashing to obtain a reproducible state identifier, and generates executable source code derived from that state.
 
-The project draws upon concepts from information theory, symbolic computation, cryptographic hashing, and algorithmic representation. It does not claim to provide proofs of mathematical conjectures, physical theories, or metaphysical propositions. Rather, it serves as a reproducible computational environment for exploring structured transformations between linguistic inputs and symbolic outputs.
+The project is intended as a research prototype for exploring:
+
+- Symbolic computation
+- Reproducible state generation
+- Prompt-to-program transformations
+- Computational representations of information
+- Minimal self-generating software systems
+
+QED.sh does not claim to solve any open mathematical problem, prove any physical theory, or establish any metaphysical proposition. It is best understood as a computational experiment in symbolic information processing.
 
 ---
 
-## 1. Introduction
+## Motivation
 
-The reproducibility of symbolic representations is a central concern in computer science, information theory, and formal systems.
+Modern software systems increasingly rely on natural-language interfaces.
 
-Given an input string
+Large Language Models (LLMs) have demonstrated that prompts can serve as high-level specifications for program generation. However, the relationship between a prompt and the resulting computational artifact is often non-deterministic.
+
+QED.sh explores a complementary question:
+
+> Can a prompt be transformed into a deterministic symbolic state from which executable programs may be reproducibly generated?
+
+The project investigates this question through a minimal shell-based implementation.
+
+---
+
+## Theoretical Framework
+
+Given a prompt:
 
 P
 
-a deterministic computational process should produce an output state
+QED.sh performs the following transformations:
 
-Omega(P)
+### Step 1 — Symbolic Encoding
 
-such that
+The UTF-8 byte stream of P is mapped into a symbolic alphabet:
 
-P1 = P2 implies Omega(P1) = Omega(P2).
+{A, T, G, C}
 
-QED.sh investigates this principle through a minimal shell implementation in which arbitrary textual prompts are transformed into symbolic coordinate states.
+yielding:
 
-The objective is not semantic interpretation but computational reproducibility.
-
----
-
-## 2. Formal Framework
-
-### 2.1 Prompt Encoding
-
-Let P denote a UTF-8 encoded text prompt.
-
-Each byte is transformed into a symbolic alphabet:
-
-A = {A, T, G, C}
-
-The resulting sequence is:
-
-D(P) = d1 d2 ... dn
-
-where each di belongs to A.
-
-This transformation produces a finite symbolic representation of the original text.
-
----
-
-### 2.2 Shannon Entropy
-
-For symbol frequencies pi, the Shannon entropy is defined as:
-
-H(D) = - sum pi log2(pi)
-
-Entropy is used solely as a descriptive statistic of symbol distribution.
-
-No physical or thermodynamic interpretation is implied.
-
----
-
-### 2.3 Cryptographic State Mapping
-
-The symbolic sequence is hashed using SHA-512:
-
-G = SHA512(D)
-
-The digest is interpreted as a large integer:
-
-G belongs to N.
-
-This integer functions as a deterministic state identifier.
-
----
-
-### 2.4 Symbolic Coordinate Projection
-
-A symbolic coordinate is constructed as:
-
-z = x + yi
+E(P)
 
 where:
 
-x = L / bitlength(G)
-
-y = 1 / (L + 1)
-
-Here, L = |D| denotes the sequence length.
-
-The coordinate has no asserted geometric or physical significance and is used solely as a reproducible symbolic descriptor.
+E : Prompt → Symbolic State
 
 ---
 
-### 2.5 Logarithmic Projection
+### Step 2 — State Identification
 
-An auxiliary coordinate is defined by:
+A cryptographic hash function is applied:
 
-rho = 1/2 + i log(G)
+Ω = SHA256(E(P) || P)
 
-This expression should be understood as a deterministic mapping of state identifiers into a complex-valued symbolic space.
+where:
 
-The notation intentionally resembles structures appearing in analytic number theory; however, no claim is made regarding the Riemann zeta function or its zeros.
+- Ω denotes the symbolic state identifier
+- || denotes concatenation
 
----
-
-## 3. Deterministic Fixed-Point Convention
-
-Some implementations define:
-
-GC = 1/2
-
-and:
-
-H = GC - 1/2
-
-Therefore:
-
-H = 0
-
-Within the framework, this condition is interpreted as a symbolic normalization convention rather than a mathematical fixed point in the dynamical-systems sense.
+The resulting Ω serves as a reproducible state descriptor.
 
 ---
 
-## 4. Computational Workflow
+### Step 3 — Program Generation
 
-The complete pipeline is:
+The symbolic state Ω is embedded into a generated Python source file:
 
-P -> D -> H(D) -> G -> rho -> Omega
+Program = G(Ω)
 
-where Omega denotes the final symbolic state.
+where:
 
-This process is deterministic and reproducible.
+G : Symbolic State → Executable Artifact
+
+The generated program can subsequently be executed independently.
 
 ---
 
-## 5. Example
+## Architecture
 
-### Input
+Input Prompt
+↓
+ACGT Encoding
+↓
+Symbolic State
+↓
+SHA-256 Mapping
+↓
+Ω Identifier
+↓
+Program Generator
+↓
+Python Source Code
 
-Hello World
+---
 
-### Output
+## Features
 
+- Deterministic symbolic encoding
+- Reproducible state generation
+- Cryptographic state identification
+- Automatic Python code generation
+- Minimal implementation
+- Shell-compatible execution
+- iSH-compatible deployment
+- Human-readable outputs
+
+---
+
+## Installation
+
+### Alpine Linux / iSH
+
+```sh
+apk add --no-cache python3
+```
+
+### macOS
+
+```sh
+brew install python
+```
+
+### Linux
+
+```sh
+python3 --version
+```
+
+---
+
+## Usage
+
+Clone the repository:
+
+```sh
+git clone https://github.com/letsgo0226/QED.sh.git
+cd QED.sh
+```
+
+Run:
+
+```sh
+sh QED.sh
+```
+
+or:
+
+```sh
+chmod +x QED.sh
+./QED.sh
+```
+
+Enter a prompt when requested:
+
+```text
+SELF CODE> Hello World
+```
+
+---
+
+## Example Output
+
+```json
 {
-  "kernel": "QED_META_OMEGA_OS",
-  "ACGT_length": 44,
-  "entropy": 1.98,
-  "rho": "1/2+709.81i",
-  "GC": 0.5,
-  "Hamiltonian_delta": 0.0,
-  "omega": "..."
+  "kernel": "QED_self_analytic_program_generator",
+  "Omega": "f3c8f54f...",
+  "output": "Hello_World_f3c8f54f.py"
 }
+```
 
-The numerical values depend entirely on the supplied input and implementation.
-
----
-
-## 6. Reproducibility
-
-For any prompt P, the framework satisfies:
-
-Omega(P) = Omega(P)
-
-under repeated execution.
-
-Consequently, symbolic states may be used as reproducible fingerprints of textual inputs.
+Generated source code is then printed to the terminal and saved to disk.
 
 ---
 
-## 7. Limitations
+## Research Applications
 
-The framework does not:
+Potential applications include:
 
-- prove the Riemann Hypothesis;
-- solve the Halting Problem;
-- establish physical laws;
-- derive metaphysical truths;
-- infer semantic meaning from hashes;
-- provide cryptographic guarantees beyond those of the underlying hash function.
+### Symbolic Computing
 
-All symbolic projections should be interpreted as computational constructions rather than scientific claims.
+Exploring alternative symbolic representations of textual information.
 
----
+### Reproducible Prompt Encoding
 
-## 8. Potential Research Applications
+Investigating deterministic mappings from prompts to computational states.
 
-Possible exploratory applications include:
+### Program Synthesis
 
-- symbolic computation;
-- information-theoretic visualization;
-- prompt fingerprinting;
-- reproducible state generation;
-- digital humanities;
-- computational philosophy;
-- generative media systems;
-- experimental formal modeling.
+Studying minimal prompt-driven software generation systems.
 
-These applications remain exploratory and should be evaluated according to the standards of their respective disciplines.
+### Computational Creativity
+
+Generating executable artifacts from symbolic transformations.
+
+### Information-Theoretic Experiments
+
+Examining relationships between symbolic encodings, hashing functions, and generated outputs.
 
 ---
 
-## 9. Conclusion
+## Limitations
 
-QED.sh demonstrates how arbitrary textual prompts can be transformed into deterministic symbolic states through a reproducible computational pipeline.
+QED.sh is an experimental research prototype.
 
-The framework provides a compact experimental environment for investigating relationships among symbolic encoding, entropy measures, cryptographic identifiers, and coordinate-based representations.
+The system:
 
-Its primary contribution is methodological reproducibility rather than theoretical proof.
+- does not guarantee semantic correctness
+- does not verify generated programs
+- does not perform formal theorem proving
+- does not provide mathematical proofs
+- does not establish physical or metaphysical claims
+
+Outputs should be interpreted as computational artifacts generated by deterministic symbolic procedures.
+
+---
+
+## Reproducibility
+
+For a fixed:
+
+- prompt
+- encoding method
+- hash function
+
+the generated symbolic state Ω remains identical.
+
+Consequently:
+
+```text
+Same Input
+→ Same Symbolic State
+→ Same Generated Program
+```
+
+This reproducibility constitutes the central experimental property of QED.sh.
+
+---
+
+## Future Directions
+
+Potential future developments include:
+
+- alternative symbolic alphabets
+- graph-based symbolic states
+- formal language representations
+- executable symbolic grammars
+- deterministic prompt compilers
+- information-theoretic analysis tools
+- integration with LLM-based synthesis systems
+
+---
+
+## Repository Structure
+
+```text
+QED.sh
+README.md
+LICENSE
+```
 
 ---
 
 ## Citation
 
-@software{shih_qed_sh,
-  author  = {Hengyu Shih},
-  title   = {QED.sh: A Deterministic Symbolic Encoding Framework for Reproducible Prompt-State Generation},
-  year    = {2026},
-  version = {1.0},
-  license = {MIT}
+If this project contributes to your research, please cite it as:
+
+```bibtex
+@software{shih2026qed,
+  author = {Hengyu Shih},
+  title = {QED.sh: A Minimal Framework for Reproducible Symbolic State Generation and Program Synthesis},
+  year = {2026},
+  url = {https://github.com/letsgo0226/QED.sh}
 }
+```
+
+---
+
+## License
+
+MIT License
 
 ---
 
@@ -234,6 +299,8 @@ Its primary contribution is methodological reproducibility rather than theoretic
 
 Hengyu Shih
 
-Experimental Symbolic Computing Laboratory
+Independent Researcher
+
+Experimental Symbolic Computing
 
 SH, QED.

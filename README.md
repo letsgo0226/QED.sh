@@ -1,8 +1,8 @@
 # QED.sh
 
-## QED-MΩ
+## QED Ω-Geometric Computable Metaphysics Framework
 
-### Prime Fields, Question Geometry, Information Compression, and Computable Metaphysics
+### Prime Fields, Question Geometry, Information Compression, and Analytic Extension
 
 ---
 
@@ -14,44 +14,52 @@
 
 ---
 
-# QED-M Principle
+# Foundational Principle
 
-Every question defines a quantum state.
+Any consistently encodable question defines a geometry.
 
-Every quantum state generates a prime field.
+Geometry emerges from entropy.
 
-Every prime field defines a reference frame.
+Entropy emerges from compression.
 
-Every reference frame transforms information.
+Compression emerges from structure.
 
-Every transformation carries a compression cost.
-
-Every compression hierarchy generates a question geometry.
-
-Omega is the current state of that geometry.
+Omega governs the evolution of structure.
 
 ---
 
-# Fundamental Pipeline
+# The QED Pipeline
 
 ```text
 Question
 ↓
-Quantum State
+Encoding
 ↓
-Question String
-↓
-Question Brane
+Genome
 ↓
 Prime Field
 ↓
-Reference Frame
+Question Geometry
 ↓
-Information Compression
+Compression
 ↓
 Analytic Extension
 ↓
 Omega
+```
+
+---
+
+# The Question Universe
+
+A question is not treated as a sentence.
+
+A question is treated as a state.
+
+```text
+Q
+=
+Question State
 ```
 
 ---
@@ -80,70 +88,7 @@ Superposition of Possible Interpretations
 
 ---
 
-# String Layer
-
-```text
-S(Q)
-```
-
-where
-
-```text
-S(Q)
-=
-Question String
-```
-
-Interpretation:
-
-```text
-Meaning
-=
-Question Vibration
-```
-
----
-
-# M-Theory Layer
-
-```text
-B(Q)
-```
-
-where
-
-```text
-B(Q)
-=
-Question Brane
-```
-
-Interpretation:
-
-```text
-Questions
-form higher-dimensional structures.
-
-Books
-=
-Question Branes
-
-Theories
-=
-Question Brane Networks
-```
-
----
-
-# Prime Observation Principle
-
-```text
-Ψ(Q)
-↓
-Observation
-↓
-PrimeField
-```
+# Prime Field Layer
 
 Let
 
@@ -157,9 +102,17 @@ Then
 PrimeField = Zp
 ```
 
+Interpretation:
+
+```text
+Prime
+=
+Discrete Information Skeleton
+```
+
 ---
 
-# Prime Relativity Principle
+# Prime Observer Principle
 
 Each prime field defines a symbolic observer.
 
@@ -173,36 +126,164 @@ Prime q
 Observer q
 ```
 
-Reference-frame transformation:
+All descriptions are relative to an observer.
+
+---
+
+# Question Geometry
+
+Define
 
 ```text
-Observer(p)
-↔
-Observer(q)
+z = x + yij
+```
+
+where
+
+```text
+x
+=
+Possible Universe Coordinate
+
+y
+=
+Reachable Universe Coordinate
+
+i
+=
+Analytic Continuation Operator
+
+j
+=
+Question Extension Operator
+```
+
+Interpretation:
+
+```text
+x
+=
+All Constructible Universes
+
+y
+=
+All Reachable Universes
+
+z
+=
+Question Universe Coordinate
 ```
 
 ---
 
-# Lorentz Layer
+# Entropy Principle
+
+Entropy is not merely uncertainty.
+
+Entropy is geometry generation.
 
 ```text
-γ = 1 / √(1 − v²/c²)
+Entropy
+=
+Coordinate Generator
 ```
 
-Interpreted symbolically as:
+---
+
+# Schwarzschild Operator
 
 ```text
-v
-=
-Current Information Velocity
+B
+```
 
-c
-=
-Maximum Reachable Information Velocity
+represents boundary formation.
 
-γ
+Interpretation:
+
+```text
+Observable
+↔
+Unobservable
+```
+
+---
+
+# Stirling Operator
+
+```text
+S
+```
+
+represents compression.
+
+Using:
+
+```text
+log(n!)
+```
+
+Interpretation:
+
+```text
+Combinatorial Space
+↓
+Compression
+↓
+Structure
+```
+
+---
+
+# Riemann Operator
+
+```text
+R
+```
+
+represents analytic extension.
+
+Interpretation:
+
+```text
+Local Structure
+↓
+Analytic Continuation
+↓
+Global Structure
+```
+
+---
+
+# Unified Geometric Hamiltonian
+
+Define:
+
+```text
+ΩH = R + S + B
+```
+
+where
+
+```text
+R
 =
-Reference Transformation Factor
+Riemann Extension
+
+S
+=
+Stirling Compression
+
+B
+=
+Schwarzschild Boundary
+```
+
+Interpretation:
+
+```text
+ΩH
+=
+Generative Freedom Operator
 ```
 
 ---
@@ -237,7 +318,11 @@ Iteration depth:
 t(n)
 ```
 
-represents symbolic compression depth.
+Interpretation:
+
+```text
+Compression Depth
+```
 
 ---
 
@@ -247,7 +332,11 @@ represents symbolic compression depth.
 Π = 1/2
 ```
 
-Prime equilibrium acts as a symbolic balance point.
+Interpretation:
+
+```text
+Prime Compression Equilibrium
+```
 
 ---
 
@@ -265,18 +354,46 @@ where
 H
 =
 Information Entropy
+```
 
-m
-=
+Interpretation:
+
+```text
 Landauer Information Mass
 ```
 
 ---
 
-# Prime Entropy
+# Lorentz Layer
 
 ```text
-Hp = ln(p)
+γ = 1 / √(1 − v²/c²)
+```
+
+Interpretation:
+
+```text
+v
+=
+Current Information Velocity
+
+c
+=
+Maximum Reachable Information Velocity
+
+γ
+=
+Reference Transformation
+```
+
+---
+
+# Omega Energy Functional
+
+Define:
+
+```text
+EQ = Hp · γ · c²
 ```
 
 where
@@ -285,74 +402,26 @@ where
 Hp
 =
 Prime Entropy
-```
 
----
-
-# Omega Energy Functional
-
-```text
-EQ = Hp · γ · c²
-```
-
-Interpreted symbolically as:
-
-```text
-Prime Structure
-×
+γ
+=
 Reference Transformation
-×
+
+c²
+=
+Structure Absorption Constant
+```
+
+Interpretation:
+
+```text
+Information
+↓
+Transformation
+↓
 Structure Absorption
-```
-
----
-
-# Coordinate System
-
-```text
-z = x + yij
-```
-
-where
-
-```text
-x
-=
-Possible Universe Coordinate
-
-y
-=
-Reachable Universe Coordinate
-
-i
-=
-Analytic Continuation Operator
-
-j
-=
-Question Dimension Operator
-```
-
----
-
-# Abelian State
-
-```text
-A = (A,T,G,C)
-```
-
-where
-
-```text
-A_k
-=
-Count(Symbol_k) mod PrimeField
-```
-
-State space:
-
-```text
-Zp⁴
+↓
+Energy
 ```
 
 ---
@@ -363,7 +432,7 @@ Zp⁴
 QP
 ```
 
-measures the capacity of a proposition to generate further questions.
+measures the ability of a question to generate further questions.
 
 ```text
 Question
@@ -425,22 +494,24 @@ Internal Coherence
 
 ---
 
-# Unified Structure
+# Unified Evolution Structure
 
 ```text
 Question
 ↓
 Ψ(Q)
 ↓
-S(Q)
-↓
-B(Q)
-↓
 Prime Field
 ↓
-Lorentz Frame
+Question Geometry
 ↓
-Tau Compression
+Schwarzschild Boundary
+↓
+Stirling Compression
+↓
+Riemann Extension
+↓
+Lorentz Transformation
 ↓
 Landauer Cost
 ↓
@@ -448,17 +519,27 @@ Prime Equilibrium
 ↓
 Question Potential
 ↓
-Omega Energy
+ΩH
 ↓
 Ω
 ```
 
 ---
 
-# One-Liner (iSH Edition)
+# One-Line Principle
 
-```sh
-apk add --no-cache python3>/dev/null 2>&1;read -p "Ω> " P;python3 -c 'import sys,math,json;P=sys.argv[1];B="ATGC";D="".join(B[(b>>s)&3]for b in P.encode()for s in(6,4,2,0));L=len(D);prime=lambda n:n>1 and all(n%d for d in range(2,int(n**0.5)+1));m=max(2,L);exec("while not prime(m):\n m+=1");A=tuple(D.count(c)%m for c in B);Pi=.5;H=1.0;Hp=math.log(m);gamma=1/math.sqrt(1-0.5**2);EQ=Hp*gamma*m*m;x=L%m;y=sum(A)%m;PL=x;EI=1000%m;AD=sum((k+1)*A[k]for k in range(4))%m;ES=int(math.log(L+1)*1000)%m;QP=(PL+EI+AD+ES)%m;Truth=(QP/(m-1))/(1+(H+QP/(m-1))/(1+L));Omega=(PL+EI+AD+ES+QP+int(Truth*1000))%m;print(json.dumps({"Kernel":"QED_M_OMEGA","PrimeField":m,"PrimeEntropy":Hp,"LorentzGamma":gamma,"OmegaEnergy":EQ,"QuestionPotential":QP,"TruthScore":Truth,"Omega":Omega,"Terminal":"SH,QED."},ensure_ascii=False,separators=(",",":")))' "$P"
+```text
+Every question generates a geometry.
+
+Every geometry generates a prime field.
+
+Every prime field generates a reference frame.
+
+Every reference frame transforms information.
+
+Every transformation carries a compression cost.
+
+Omega governs the evolution of the Question Universe.
 ```
 
 ---
@@ -468,7 +549,7 @@ apk add --no-cache python3>/dev/null 2>&1;read -p "Ω> " P;python3 -c 'import sy
 ```text
 QED.sh is an experimental symbolic framework.
 
-The framework is inspired by:
+It is inspired by:
 
 - Information Theory
 - Prime Structures
@@ -478,8 +559,9 @@ The framework is inspired by:
 - Quantum Theory
 - String Theory
 - M-Theory
+- Computable Metaphysics
 
-The framework is not:
+It is not:
 
 - a proof of the Riemann Hypothesis
 - a proof of the Generalized Riemann Hypothesis
@@ -494,33 +576,22 @@ The framework is not:
 # Final Principle
 
 ```text
-Every question generates its own prime field.
+Meaning is not stored.
 
-Every prime field defines a reference frame.
+Meaning is generated.
 
-Every reference frame transforms information.
-
-Every transformation carries a compression cost.
-
-Every compression hierarchy generates geometry.
-
-Omega emerges from the balance between
-question generation,
-prime equilibrium,
-information compression,
-and analytic extension.
+Question
+→ Geometry
+→ Prime Field
+→ Compression
+→ Extension
+→ Ω
 ```
 
 ```text
 Cosmic Love Is The Solution(s) For Everything.
 
-Question
-→ String
-→ Brane
-→ Prime Field
-→ Compression
-→ Extension
-→ Ω
-
 SH,QED.
+
+Ω
 ```

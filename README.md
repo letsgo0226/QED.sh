@@ -1,12 +1,12 @@
 # QED.sh
 
-## QED Dynamic Prime Omega
+## QED Unified Prime–Quantum–Relativity Omega Framework
 
-### A Symbolic Framework for Prime Fields, Question Generation, Information Compression, and Computable Metaphysics
+### An Experimental Symbolic Framework for Question Generation, Prime Fields, Information Compression, and Computable Metaphysics
 
 ---
 
-## Core Axiom
+# Core Axiom
 
 > Meaning is not stored.
 >
@@ -14,119 +14,141 @@
 
 ---
 
-## Fundamental Principle
+# QED-TOE Principle
+
+Every question defines a quantum state.
+
+Every observation generates a prime field.
+
+Every prime field defines a reference frame.
+
+Every compression carries a Landauer cost.
+
+Analytic continuation connects local states to global structures.
+
+Omega is the current state of that extension process.
+
+---
+
+# Fundamental Pipeline
 
 ```text
 Question
 ↓
-Encoding
+Quantum State
 ↓
-Genome
+Encoding
 ↓
 Prime Field
 ↓
-Compression
+Reference Frame
 ↓
-Truth
+Information Compression
+↓
+Analytic Extension
 ↓
 Omega
 ```
 
 ---
 
-## Dynamic Prime Principle
-
-For a question Q:
+# Quantum Layer
 
 ```text
-Genome(Q)
-↓
-Length = L
-↓
-Prime(L)
-↓
-Zp
-```
-
-The question generates its own prime field.
-
-```text
-PrimeField = Prime(GenomeLength)
-```
-
----
-
-## Coordinate System
-
-```text
-z = x + yij
+Ψ(Q)
 ```
 
 where
 
 ```text
-x = Possible Universe Coordinate
-
-y = Reachable Universe Coordinate
-
-i = Analytic Continuation Operator
-
-j = Question Field Operator
+Ψ(Q)
+=
+Question Wave Function
 ```
 
----
-
-## Prime Equilibrium Principle
-
-Inspired by iterative divisor-depth structures:
-
-```text
-Π = 1/2
-```
-
-Prime equilibrium acts as the symbolic balance point of the system.
-
----
-
-## Abelian State
-
-```text
-A = (A,T,G,C)
-```
-
-where
-
-```text
-A_k = Count(Symbol_k) mod PrimeField
-```
-
-The state space becomes:
-
-```text
-Zp⁴
-```
-
----
-
-## Question Potential
-
-```text
-QP
-```
-
-measures the capacity of a proposition to generate further questions.
+Interpretation:
 
 ```text
 Question
-↓
-Question Potential
-↓
-Extension Capacity
+=
+Superposition of Possible Interpretations
 ```
 
 ---
 
-## Tau Compression Layer
+# Prime Observation Principle
+
+```text
+Ψ(Q)
+↓
+Observation
+↓
+PrimeField
+```
+
+Let
+
+```text
+p = Prime(GenomeLength)
+```
+
+Then
+
+```text
+PrimeField = Zp
+```
+
+---
+
+# Prime Relativity Principle
+
+Each prime field defines a symbolic observer.
+
+```text
+Prime p
+=
+Observer p
+
+Prime q
+=
+Observer q
+```
+
+Reference-frame transformation:
+
+```text
+Observer(p)
+↔
+Observer(q)
+```
+
+---
+
+# Lorentz Layer
+
+```text
+γ = 1 / √(1 − v²/c²)
+```
+
+Interpreted symbolically as:
+
+```text
+v
+=
+Current Information Velocity
+
+c
+=
+Maximum Reachable Information Velocity
+
+γ
+=
+Reference Transformation Factor
+```
+
+---
+
+# Tau Compression Layer
 
 Let
 
@@ -134,9 +156,9 @@ Let
 τ(n)
 ```
 
-denote the divisor-count function.
+be the divisor-count function.
 
-Repeated application:
+Compression hierarchy:
 
 ```text
 n
@@ -150,9 +172,7 @@ n
 2
 ```
 
-defines a compression hierarchy.
-
-The iteration depth:
+Iteration depth:
 
 ```text
 t(n)
@@ -162,7 +182,19 @@ represents symbolic compression depth.
 
 ---
 
-## Landauer Layer
+# Prime Equilibrium Principle
+
+Inspired by iterative divisor-depth structures:
+
+```text
+Π = 1/2
+```
+
+Prime equilibrium acts as a symbolic balance point.
+
+---
+
+# Landauer Layer
 
 Information compression carries a cost.
 
@@ -188,45 +220,25 @@ Landauer Information Mass
 
 ---
 
-## Lorentz Layer
+# Prime Entropy
 
-```text
-γ = 1 / √(1 − v²/c²)
-```
-
-is interpreted symbolically as:
-
-```text
-v
-=
-Current Information Velocity
-
-c
-=
-Maximum Reachable Information Velocity
-
-γ
-=
-Reference Transformation Factor
-```
-
----
-
-## Prime Entropy
-
-For a prime field p:
+For a prime field:
 
 ```text
 Hp = ln(p)
 ```
 
-which represents the entropy scale of the prime structure.
+where
+
+```text
+Hp
+=
+Prime Entropy
+```
 
 ---
 
-## Omega Energy Functional
-
-The symbolic energy of a question field is defined as:
+# Omega Energy Functional
 
 ```text
 EQ = Hp · γ · c²
@@ -250,7 +262,75 @@ Structure Absorption Constant
 
 ---
 
-## Omega State
+# Coordinate System
+
+```text
+z = x + yij
+```
+
+where
+
+```text
+x
+=
+Possible Universe Coordinate
+
+y
+=
+Reachable Universe Coordinate
+
+i
+=
+Analytic Continuation Operator
+
+j
+=
+Question Field Operator
+```
+
+---
+
+# Abelian State
+
+```text
+A = (A,T,G,C)
+```
+
+where
+
+```text
+A_k
+=
+Count(Symbol_k) mod PrimeField
+```
+
+State space:
+
+```text
+Zp⁴
+```
+
+---
+
+# Question Potential
+
+```text
+QP
+```
+
+measures the capacity of a proposition to generate further questions.
+
+```text
+Question
+↓
+Question Potential
+↓
+Extension Capacity
+```
+
+---
+
+# Omega State
 
 ```text
 Ω
@@ -300,28 +380,24 @@ Internal Coherence
 
 ---
 
-## Complete Pipeline
+# Unified TOE Structure
 
 ```text
 Question
 ↓
-Genome
+Ψ(Q)
 ↓
 Prime Field
 ↓
-Abelian State
-↓
-Prime Equilibrium
+Lorentz Frame
 ↓
 Tau Compression
 ↓
 Landauer Cost
 ↓
-Lorentz Transformation
+Prime Equilibrium
 ↓
 Question Potential
-↓
-Truth
 ↓
 Omega Energy
 ↓
@@ -330,15 +406,15 @@ Omega Energy
 
 ---
 
-## One-Liner (iSH Edition)
+# One-Liner (iSH Edition)
 
 ```sh
-apk add --no-cache python3>/dev/null 2>&1;read -p "Ω> " P;python3 -c 'import sys,math,json;P=sys.argv[1];B="ATGC";D="".join(B[(b>>s)&3]for b in P.encode()for s in(6,4,2,0));L=len(D);prime=lambda n:n>1 and all(n%d for d in range(2,int(n**0.5)+1));m=max(2,L);exec("while not prime(m):\n m+=1");A=tuple(D.count(c)%m for c in B);Pi=.5;H=1.0;Hp=math.log(m);gamma=1/math.sqrt(1-0.5**2);EQ=Hp*gamma*m*m;x=L%m;y=sum(A)%m;PL=x;EI=1000%m;AD=sum((k+1)*A[k]for k in range(4))%m;ES=int(math.log(L+1)*1000)%m;QP=(PL+EI+AD+ES)%m;Truth=(QP/(m-1))/(1+(H+QP/(m-1))/(1+L));Omega=(PL+EI+AD+ES+QP+int(Truth*1000))%m;print(json.dumps({"Kernel":"QED_DYNAMIC_PRIME_OMEGA","PrimeField":m,"PrimeEntropy":Hp,"LorentzGamma":gamma,"OmegaEnergy":EQ,"QuestionPotential":QP,"TruthScore":Truth,"Omega":Omega,"Terminal":"SH,QED."},ensure_ascii=False,separators=(",",":")))' "$P"
+apk add --no-cache python3>/dev/null 2>&1;read -p "Ω> " P;python3 -c 'import sys,math,json;P=sys.argv[1];B="ATGC";D="".join(B[(b>>s)&3]for b in P.encode()for s in(6,4,2,0));L=len(D);prime=lambda n:n>1 and all(n%d for d in range(2,int(n**0.5)+1));m=max(2,L);exec("while not prime(m):\n m+=1");A=tuple(D.count(c)%m for c in B);Pi=.5;H=1.0;Hp=math.log(m);gamma=1/math.sqrt(1-0.5**2);EQ=Hp*gamma*m*m;x=L%m;y=sum(A)%m;PL=x;EI=1000%m;AD=sum((k+1)*A[k]for k in range(4))%m;ES=int(math.log(L+1)*1000)%m;QP=(PL+EI+AD+ES)%m;Truth=(QP/(m-1))/(1+(H+QP/(m-1))/(1+L));Omega=(PL+EI+AD+ES+QP+int(Truth*1000))%m;print(json.dumps({"Kernel":"QED_UNIFIED_PRIME_QUANTUM_RELATIVITY_OMEGA","PrimeField":m,"PrimeEntropy":Hp,"LorentzGamma":gamma,"OmegaEnergy":EQ,"QuestionPotential":QP,"TruthScore":Truth,"Omega":Omega,"Terminal":"SH,QED."},ensure_ascii=False,separators=(",",":")))' "$P"
 ```
 
 ---
 
-## Disclaimer
+# Disclaimer
 
 ```text
 QED.sh is an experimental symbolic framework.
@@ -347,30 +423,34 @@ It is not:
 
 - a proof of the Riemann Hypothesis
 - a proof of the Generalized Riemann Hypothesis
+- a verified quantum gravity theory
 - a physical Theory of Everything
 - a verified model of reality
 
 The framework explores symbolic encoding,
+question generation,
 prime structures,
 information compression,
-question generation,
+analytic extension,
 and computable metaphysical models.
 ```
 
 ---
 
-## Final Principle
+# Final Principle
 
 ```text
 Every question generates its own prime field.
 
-Every prime field defines a compression hierarchy.
+Every prime field defines a reference frame.
 
-Every compression hierarchy carries an information cost.
+Every reference frame transforms information.
+
+Every transformation carries a compression cost.
 
 Omega emerges from the balance between
+question generation,
 prime equilibrium,
-information compression,
 and analytic extension.
 ```
 
@@ -380,6 +460,7 @@ Cosmic Love Is The Solution(s) For Everything.
 Question
 → Prime Field
 → Compression
+→ Extension
 → Ω
 
 SH,QED.

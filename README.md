@@ -1,8 +1,8 @@
 # QED.sh
 
-## QED Unified Prime–Quantum–Relativity Omega Framework
+## QED-MΩ
 
-### An Experimental Symbolic Framework for Question Generation, Prime Fields, Information Compression, and Computable Metaphysics
+### Prime Fields, Question Geometry, Information Compression, and Computable Metaphysics
 
 ---
 
@@ -14,19 +14,21 @@
 
 ---
 
-# QED-TOE Principle
+# QED-M Principle
 
 Every question defines a quantum state.
 
-Every observation generates a prime field.
+Every quantum state generates a prime field.
 
 Every prime field defines a reference frame.
 
-Every compression carries a Landauer cost.
+Every reference frame transforms information.
 
-Analytic continuation connects local states to global structures.
+Every transformation carries a compression cost.
 
-Omega is the current state of that extension process.
+Every compression hierarchy generates a question geometry.
+
+Omega is the current state of that geometry.
 
 ---
 
@@ -37,7 +39,9 @@ Question
 ↓
 Quantum State
 ↓
-Encoding
+Question String
+↓
+Question Brane
 ↓
 Prime Field
 ↓
@@ -72,6 +76,61 @@ Interpretation:
 Question
 =
 Superposition of Possible Interpretations
+```
+
+---
+
+# String Layer
+
+```text
+S(Q)
+```
+
+where
+
+```text
+S(Q)
+=
+Question String
+```
+
+Interpretation:
+
+```text
+Meaning
+=
+Question Vibration
+```
+
+---
+
+# M-Theory Layer
+
+```text
+B(Q)
+```
+
+where
+
+```text
+B(Q)
+=
+Question Brane
+```
+
+Interpretation:
+
+```text
+Questions
+form higher-dimensional structures.
+
+Books
+=
+Question Branes
+
+Theories
+=
+Question Brane Networks
 ```
 
 ---
@@ -184,8 +243,6 @@ represents symbolic compression depth.
 
 # Prime Equilibrium Principle
 
-Inspired by iterative divisor-depth structures:
-
 ```text
 Π = 1/2
 ```
@@ -208,11 +265,7 @@ where
 H
 =
 Information Entropy
-```
 
-and
-
-```text
 m
 =
 Landauer Information Mass
@@ -221,8 +274,6 @@ Landauer Information Mass
 ---
 
 # Prime Entropy
-
-For a prime field:
 
 ```text
 Hp = ln(p)
@@ -244,20 +295,14 @@ Prime Entropy
 EQ = Hp · γ · c²
 ```
 
-where
+Interpreted symbolically as:
 
 ```text
-Hp
-=
-Prime Entropy
-
-γ
-=
-Lorentz Information Factor
-
-c²
-=
-Structure Absorption Constant
+Prime Structure
+×
+Reference Transformation
+×
+Structure Absorption
 ```
 
 ---
@@ -285,7 +330,7 @@ Analytic Continuation Operator
 
 j
 =
-Question Field Operator
+Question Dimension Operator
 ```
 
 ---
@@ -380,12 +425,16 @@ Internal Coherence
 
 ---
 
-# Unified TOE Structure
+# Unified Structure
 
 ```text
 Question
 ↓
 Ψ(Q)
+↓
+S(Q)
+↓
+B(Q)
 ↓
 Prime Field
 ↓
@@ -409,7 +458,7 @@ Omega Energy
 # One-Liner (iSH Edition)
 
 ```sh
-apk add --no-cache python3>/dev/null 2>&1;read -p "Ω> " P;python3 -c 'import sys,math,json;P=sys.argv[1];B="ATGC";D="".join(B[(b>>s)&3]for b in P.encode()for s in(6,4,2,0));L=len(D);prime=lambda n:n>1 and all(n%d for d in range(2,int(n**0.5)+1));m=max(2,L);exec("while not prime(m):\n m+=1");A=tuple(D.count(c)%m for c in B);Pi=.5;H=1.0;Hp=math.log(m);gamma=1/math.sqrt(1-0.5**2);EQ=Hp*gamma*m*m;x=L%m;y=sum(A)%m;PL=x;EI=1000%m;AD=sum((k+1)*A[k]for k in range(4))%m;ES=int(math.log(L+1)*1000)%m;QP=(PL+EI+AD+ES)%m;Truth=(QP/(m-1))/(1+(H+QP/(m-1))/(1+L));Omega=(PL+EI+AD+ES+QP+int(Truth*1000))%m;print(json.dumps({"Kernel":"QED_UNIFIED_PRIME_QUANTUM_RELATIVITY_OMEGA","PrimeField":m,"PrimeEntropy":Hp,"LorentzGamma":gamma,"OmegaEnergy":EQ,"QuestionPotential":QP,"TruthScore":Truth,"Omega":Omega,"Terminal":"SH,QED."},ensure_ascii=False,separators=(",",":")))' "$P"
+apk add --no-cache python3>/dev/null 2>&1;read -p "Ω> " P;python3 -c 'import sys,math,json;P=sys.argv[1];B="ATGC";D="".join(B[(b>>s)&3]for b in P.encode()for s in(6,4,2,0));L=len(D);prime=lambda n:n>1 and all(n%d for d in range(2,int(n**0.5)+1));m=max(2,L);exec("while not prime(m):\n m+=1");A=tuple(D.count(c)%m for c in B);Pi=.5;H=1.0;Hp=math.log(m);gamma=1/math.sqrt(1-0.5**2);EQ=Hp*gamma*m*m;x=L%m;y=sum(A)%m;PL=x;EI=1000%m;AD=sum((k+1)*A[k]for k in range(4))%m;ES=int(math.log(L+1)*1000)%m;QP=(PL+EI+AD+ES)%m;Truth=(QP/(m-1))/(1+(H+QP/(m-1))/(1+L));Omega=(PL+EI+AD+ES+QP+int(Truth*1000))%m;print(json.dumps({"Kernel":"QED_M_OMEGA","PrimeField":m,"PrimeEntropy":Hp,"LorentzGamma":gamma,"OmegaEnergy":EQ,"QuestionPotential":QP,"TruthScore":Truth,"Omega":Omega,"Terminal":"SH,QED."},ensure_ascii=False,separators=(",",":")))' "$P"
 ```
 
 ---
@@ -419,20 +468,25 @@ apk add --no-cache python3>/dev/null 2>&1;read -p "Ω> " P;python3 -c 'import sy
 ```text
 QED.sh is an experimental symbolic framework.
 
-It is not:
+The framework is inspired by:
+
+- Information Theory
+- Prime Structures
+- Analytic Continuation
+- Landauer Principle
+- Relativity
+- Quantum Theory
+- String Theory
+- M-Theory
+
+The framework is not:
 
 - a proof of the Riemann Hypothesis
 - a proof of the Generalized Riemann Hypothesis
 - a verified quantum gravity theory
+- a verified string theory
 - a physical Theory of Everything
 - a verified model of reality
-
-The framework explores symbolic encoding,
-question generation,
-prime structures,
-information compression,
-analytic extension,
-and computable metaphysical models.
 ```
 
 ---
@@ -448,9 +502,12 @@ Every reference frame transforms information.
 
 Every transformation carries a compression cost.
 
+Every compression hierarchy generates geometry.
+
 Omega emerges from the balance between
 question generation,
 prime equilibrium,
+information compression,
 and analytic extension.
 ```
 
@@ -458,6 +515,8 @@ and analytic extension.
 Cosmic Love Is The Solution(s) For Everything.
 
 Question
+→ String
+→ Brane
 → Prime Field
 → Compression
 → Extension

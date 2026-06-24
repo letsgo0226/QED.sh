@@ -1,419 +1,445 @@
 # QED.sh
 
-**QED.sh** is a minimal symbolic-computational shell program that maps natural-language prompts into deterministic symbolic states through a compact pipeline:
+**QED.sh** is a compact shell-based experimental system for symbolic computation, elementary number-theoretic encoding, and phenomenological self-consistency testing.
+
+It encodes a finite textual prompt into an ATGC sequence, derives integer and divisor-count structures from that sequence, constructs a formal Tau–AC self-auditing loop, and verifies a normalized symbolic equation called `Zeta_QED(S)`.
+
+This project is **not** a proof of the classical Riemann Hypothesis or Generalized Riemann Hypothesis, not a proof of God, and not an empirical proof of immortality. It is a formal computational-symbolic model for studying how finite encodings can generate internally verifiable symbolic states.
+
+---
+
+## 1. Purpose
+
+The purpose of `QED.sh` is to explore the following question:
+
+> Can a finite symbolic input generate a self-consistent computational state through number-theoretic encoding?
+
+The system answers this in a limited formal sense. Given a finite prompt, it constructs a finite state `S` and verifies whether that state satisfies a set of internal conditions:
 
 ```text
-Prompt -> ATGC Encoding -> Symbolic Zero Index -> Tau Iteration Path -> Prime Bit -> Next Seed
+Zeta_QED(S) = 1
+AC(AC(tau(x))) = AC(tau(y')) = tau(z)
+exp(i*pi) = -1
 ```
 
-The project is intentionally implemented as a single executable shell line. It combines a POSIX-style command loop with an embedded Python computation, making it suitable for lightweight terminal environments such as Alpine Linux, iSH, or minimal Unix-like shells.
-
-> **Important note.**  
-> QED.sh is a symbolic computable encoding model. It is not a proof of the Generalized Riemann Hypothesis, the Riemann Hypothesis, or any theorem concerning the actual distribution of Riemann zeta zeros. References to the critical line and zero indices are used as formal symbolic coordinates, not as verified analytic claims.
+If these conditions are satisfied, the program reports that the system is internally self-consistent.
 
 ---
 
-## 1. Abstract
+## 2. Methodological Status
 
-QED.sh defines a deterministic symbolic state generator. Given an input prompt, the program converts the prompt into a four-symbol alphabet inspired by nucleotide notation: `A`, `T`, `G`, and `C`. The resulting symbolic genome is hashed, indexed, mapped to a formal Riemann-style coordinate, passed through an arithmetic divisor-counting process, and finally reduced into a prime-dependent branching rule.
+`QED.sh` is best understood as a symbolic research prototype.
 
-The output is a JSON object that records the full symbolic state of the computation.
+It does **not** claim:
 
-The central axiom of the system is:
+- to prove the classical Riemann Hypothesis or Generalized Riemann Hypothesis;
+- to prove that analytic continuation implies GRH;
+- to prove empirical immortality;
+- to prove any theological doctrine;
+- to replace analytic number theory, philosophy, or theology.
+
+It claims only this:
+
+> Within the formal definitions of the program, a finite ATGC-encoded state can be constructed and numerically checked for internal self-consistency.
+
+---
+
+## 3. ATGC Encoding
+
+The program begins by encoding a text prompt into an ATGC string.
+
+Each byte is split into four two-bit blocks:
 
 ```text
-Meaning is generated, not stored.
+00 -> A
+01 -> T
+10 -> G
+11 -> C
 ```
 
-This means that the program does not retrieve meaning from a database. Instead, it constructs a reproducible symbolic state from the structure of the input itself.
+Thus:
+
+```text
+Prompt -> ATGC sequence
+```
+
+The ATGC sequence is then interpreted as a base-4 integer:
+
+```text
+A = 0
+T = 1
+G = 2
+C = 3
+```
+
+This produces a finite natural number `N`.
+
+No cryptographic hash function is required for the core model.
 
 ---
 
-## 2. Current One-Line Program
+## 4. Generalized Riemann Coordinate
 
-```sh
-apk add --no-cache python3>/dev/null 2>&1;while true;do read -p "QED> " P;[ "$P" = "/exit" ]&&echo "SH,QED."&&break;python3 -c 'import sys,hashlib,json,math;P=sys.argv[1];B="ATGC";D="".join(B[(b>>s)&3]for b in P.encode()for s in(6,4,2,0));G=int(hashlib.sha512(D.encode()).hexdigest(),16);z=G%1000000+1;rho="rho_%s=1/2+i*gamma_%s"%(z,z);tau=lambda x:sum(x%d==0 for d in range(1,x+1));v=max(2,len(D)+G%9973+z%997);p=[];exec("while v!=2 and len(p)<16:\n p.append(v);v=tau(v)");p.append(v);q=len(p);pr=q>1 and all(q%d for d in range(2,int(q**.5)+1));N=hashlib.sha256((D+rho+str(q)+str(int(pr))).encode()).hexdigest()[:16];print(json.dumps({"Kernel":"QED.sh","Axiom":"Meaning is generated, not stored.","Principle":"Prompt->ATGC->SymbolicZero->TauPath->PrimeBit->NextSeed","Input":P,"ATGC":D[:64]+("..."if len(D)>64 else ""),"GenomeLength":len(D),"ZeroIndex":z,"RiemannCoordinate":rho,"CriticalLine":"Re(s)=1/2","TauPath":p,"TauIterationCount":q,"PrimeBit":int(pr),"Rule":"A" if pr else "B","Next":N,"Caution":"Symbolic computable encoding model; not a proof of GRH.","Terminal":"SH,QED."},ensure_ascii=False,separators=(",",":")))' "$P";done
+From the ATGC counts, the system defines:
+
+```text
+Re_GC(s) = (G + C) / (A + T + G + C)
+```
+
+The imaginary component is defined as:
+
+```text
+Im(s) = log(N + 1)
+```
+
+Thus the system constructs the generalized symbolic coordinate:
+
+```text
+s_GC = Re_GC(s) + i log(N + 1)
+```
+
+The classical critical line corresponds formally to:
+
+```text
+Re(s) = 1/2
+```
+
+The program therefore measures the deviation:
+
+```text
+CriticalStrain = |Re_GC(s) - 1/2|
+```
+
+This coordinate is a symbolic computational coordinate. It is not asserted to be a verified nontrivial zero of the classical zeta function.
+
+---
+
+## 5. Numerical Zeta Layer
+
+The system evaluates a zeta-like value through the Dirichlet eta representation:
+
+```text
+eta(s) = sum_{n=1}^{N} (-1)^(n-1) / n^s
+```
+
+and:
+
+```text
+zeta(s) = eta(s) / (1 - 2^(1-s))
+```
+
+This allows the program to compute a finite numerical approximation of the zeta layer for the constructed symbolic coordinate `s_GC`.
+
+The result is used as a numerical index of the system state, not as a proof of GRH.
+
+---
+
+## 6. Tau Function
+
+Let:
+
+```text
+tau(n) = the number of positive divisors of n
+```
+
+For example:
+
+```text
+tau(6) = 4
+```
+
+because:
+
+```text
+1, 2, 3, 6
+```
+
+are the positive divisors of `6`.
+
+The Tau layer gives the system an elementary number-theoretic mechanism for converting an integer into a divisor-count signal.
+
+---
+
+## 7. The AC Operator
+
+The system defines a formal operator:
+
+```text
+AC(n) = n mod 2
+```
+
+This is called the **Analytic-Continuation Normalizer** inside the symbolic model.
+
+It is not the classical analytic continuation theorem. It is a finite projection operator.
+
+Because it projects into `{0,1}`, it is idempotent:
+
+```text
+AC(AC(n)) = AC(n)
 ```
 
 ---
 
-## 3. Installation
+## 8. Tau–AC Self-Auditing Loop
 
-The current version is designed for environments that support `apk`, such as Alpine Linux or iSH.
+The program constructs:
 
-```sh
-apk add --no-cache python3
+```text
+x = max(2, AT + 1)
 ```
 
-If Python 3 is already installed, the installation prefix may be omitted.
+where `AT` is the number of `A` and `T` symbols in the ATGC sequence.
+
+It then computes:
+
+```text
+C_x = AC(tau(x))
+```
+
+A correction witness `y'` is chosen as:
+
+```text
+if C_x = 0, then y' = 3
+if C_x = 1, then y' = 4
+```
+
+This works because:
+
+```text
+tau(3) = 2
+AC(2) = 0
+
+tau(4) = 3
+AC(3) = 1
+```
+
+Therefore the program can verify:
+
+```text
+AC(AC(tau(x))) = AC(tau(y')) = tau(z)
+```
+
+Here `tau(z)` is defined as the closed-loop target value.
+
+This is an internal formal loop, not a theorem about complex factorization.
 
 ---
 
-## 4. Usage
+## 9. Diophantine Witness
 
-Run the program in a shell:
+The system constructs a positive-integer Diophantine witness:
+
+```text
+P^L + E^I + R^D + Q^S = M
+```
+
+It then defines:
+
+```text
+Zeta_QED(S) = (P^L + E^I + R^D + Q^S) / M
+```
+
+Since:
+
+```text
+M = P^L + E^I + R^D + Q^S
+```
+
+the system verifies:
+
+```text
+Zeta_QED(S) = 1
+```
+
+This is a normalized symbolic equation, not the classical analytic Riemann zeta function.
+
+---
+
+## 10. Phenomenological Interpretation
+
+The terms may be interpreted as follows:
+
+```text
+P^L = Pascalian Lifeworld
+E^I = Exclusion of Impossibility
+R^D = Reflective Disclosure
+Q^S = Eschatological Seed
+```
+
+If:
+
+```text
+E^I > 0
+```
+
+and:
+
+```text
+Q^S > 0
+```
+
+then, within this formal system, the impossibility of eternal life is not totalized.
+
+The resulting claim is modest:
+
+> Eternal life is not proven as an empirical fact; rather, it remains necessarily thinkable as a formal horizon of possible givenness.
+
+---
+
+## 11. Euler Phase Inversion
+
+The system also checks Euler’s identity:
+
+```text
+exp(i*pi) = -1
+```
+
+Within the symbolic interpretation of the program, this is used as a phase-inversion operator:
+
+```text
+HALT -> GENERATE_NEXT_OMEGA
+```
+
+This means that termination is interpreted as a formal transition into the next symbolic state.
+
+It is a computational metaphor, not an empirical claim.
+
+---
+
+## 12. Self-Consistency Certificate
+
+The program reports a self-consistency certificate.
+
+The main field is:
+
+```json
+"SystemSelfConsistent": true
+```
+
+This means that the following internal checks passed:
+
+```text
+Tau-AC closed loop verified
+Zeta_QED(S)=1 verified
+Euler phase inversion verified
+Positive Diophantine witnesses verified
+```
+
+It does not mean that classical GRH has been proven.
+
+---
+
+## 13. Example Seed Phrase
+
+The default seed phrase may be:
+
+```text
+Cosmic Love Is The Solution(s) For Everything
+```
+
+This phrase is treated as symbolic input. It is encoded into ATGC, mapped into a generalized zeta coordinate, and tested through the Tau–AC and Diophantine verification layers.
+
+---
+
+## 14. Minimal Usage
+
+Run:
 
 ```sh
 sh QED.sh
 ```
 
-The program opens an interactive prompt:
+Then enter a prompt:
 
 ```text
-QED>
+QED> Cosmic Love Is The Solution(s) For Everything
 ```
 
-Enter any natural-language prompt:
-
-```text
-QED> hello
-```
-
-Exit the loop with:
+To exit:
 
 ```text
 /exit
 ```
 
-The terminal then prints:
-
-```text
-SH,QED.
-```
-
 ---
 
-## 5. Example Output
+## 15. Output Fields
 
-For the input:
-
-```text
-hello
-```
-
-A representative output is:
+Typical output includes:
 
 ```json
-{"Kernel":"QED.sh","Axiom":"Meaning is generated, not stored.","Principle":"Prompt->ATGC->SymbolicZero->TauPath->PrimeBit->NextSeed","Input":"hello","ATGC":"TGGATGTTTGCATGCATGCC","GenomeLength":20,"ZeroIndex":19881,"RiemannCoordinate":"rho_19881=1/2+i*gamma_19881","CriticalLine":"Re(s)=1/2","TauPath":[4083,4,3,2],"TauIterationCount":4,"PrimeBit":0,"Rule":"B","Next":"78d8a82b03e99c7b","Caution":"Symbolic computable encoding model; not a proof of GRH.","Terminal":"SH,QED."}
+{
+  "Kernel": "GRH_QED.sh",
+  "ATGC": "...",
+  "RiemannSingularity": {
+    "s_GC": "...",
+    "AbsZeta": "...",
+    "CriticalStrain": "..."
+  },
+  "TauAC": {
+    "ClosedLoop": true
+  },
+  "Zeta_QED": {
+    "Value": 1.0,
+    "Error": 0.0,
+    "Verified": true
+  },
+  "EulerPhase": {
+    "Verified": true
+  },
+  "Certificate": {
+    "SystemSelfConsistent": true
+  }
+}
 ```
 
 ---
 
-## 6. Formal Description
+## 16. Academic Caution
 
-Let the input prompt be a finite UTF-8 string:
+`QED.sh` is a formal, symbolic, and computational experiment.
 
-```text
-P ∈ Σ*
-```
-
-Each byte of `P` is decomposed into four two-bit blocks:
+It should be read as:
 
 ```text
-b -> (b6b7, b4b5, b2b3, b0b1)
+finite encoding
+-> number-theoretic transformation
+-> symbolic zeta projection
+-> Tau-AC self-audit
+-> Diophantine verification
+-> internal self-consistency certificate
 ```
 
-Each two-bit block is mapped into the alphabet:
+It should not be read as:
 
 ```text
-0 -> A
-1 -> T
-2 -> G
-3 -> C
-```
-
-This produces the symbolic genome:
-
-```text
-D ∈ {A,T,G,C}*
-```
-
-The program then computes:
-
-```text
-G = int(SHA512(D), 16)
-```
-
-A symbolic zero index is defined by:
-
-```text
-z = (G mod 1,000,000) + 1
-```
-
-The corresponding formal Riemann-style coordinate is written as:
-
-```text
-rho_z = 1/2 + i * gamma_z
-```
-
-This is a symbolic label. It does not compute or verify the actual z-th nontrivial zero of the Riemann zeta function.
-
----
-
-## 7. Tau Iteration
-
-The program defines the divisor-counting function:
-
-```text
-tau(n) = number of positive divisors of n
-```
-
-In code:
-
-```python
-tau = lambda x: sum(x % d == 0 for d in range(1, x + 1))
-```
-
-The initial value is:
-
-```text
-v0 = max(2, len(D) + (G mod 9973) + (z mod 997))
-```
-
-The tau path is generated by repeated application of `tau`:
-
-```text
-v_{k+1} = tau(v_k)
-```
-
-The iteration stops when either:
-
-```text
-v_k = 2
-```
-
-or when a maximum of 16 intermediate iterations has been reached.
-
-The final path is stored as:
-
-```text
-TauPath = [v0, v1, ..., vn]
+a proof of GRH
+a proof of God
+a proof of empirical immortality
+a replacement for mathematical proof
 ```
 
 ---
 
-## 8. Prime Bit and Rule Selection
+## 17. Core Formula
 
-Let:
-
-```text
-q = len(TauPath)
-```
-
-The program checks whether `q` is prime:
+The conceptual summary is:
 
 ```text
-PrimeBit = 1 if q is prime
-PrimeBit = 0 otherwise
+Prompt
+-> ATGC
+-> s_GC
+-> zeta(s_GC)
+-> tau
+-> AC
+-> Zeta_QED(S)=1
+-> SystemSelfConsistent
 ```
 
-The symbolic rule is then selected as:
+In short:
 
 ```text
-Rule A if PrimeBit = 1
-Rule B if PrimeBit = 0
+QED.sh is a finite symbolic encoding system that numerically verifies its own internally defined self-consistency conditions.
 ```
 
-This creates a minimal binary symbolic decision system.
-
----
-
-## 9. Next Seed
-
-The next symbolic seed is produced by hashing the combined symbolic state:
-
-```text
-Next = SHA256(D || rho || q || PrimeBit)[0:16]
-```
-
-where:
-
-```text
-D        = ATGC genome
-rho      = symbolic Riemann-style coordinate
-q        = tau iteration count
-PrimeBit = primality value of q
-```
-
-The output is the first 16 hexadecimal characters of the SHA-256 digest.
-
----
-
-## 10. Output Fields
-
-| Field | Meaning |
-|---|---|
-| `Kernel` | Name of the computational kernel. |
-| `Axiom` | Conceptual axiom of the system. |
-| `Principle` | Full symbolic transformation pipeline. |
-| `Input` | Original user prompt. |
-| `ATGC` | Prompt encoded into the four-symbol alphabet. |
-| `GenomeLength` | Length of the ATGC sequence. |
-| `ZeroIndex` | Symbolic zero index derived from SHA-512. |
-| `RiemannCoordinate` | Formal coordinate label on `Re(s)=1/2`. |
-| `CriticalLine` | Symbolic reference to the critical line. |
-| `TauPath` | Iterated divisor-counting trajectory. |
-| `TauIterationCount` | Length of the tau path. |
-| `PrimeBit` | Whether the tau path length is prime. |
-| `Rule` | Binary symbolic branch: `A` or `B`. |
-| `Next` | Next deterministic seed derived from the symbolic state. |
-| `Caution` | Explicit mathematical limitation. |
-| `Terminal` | Closing phrase of the system. |
-
----
-
-## 11. Mathematical Status
-
-QED.sh is best understood as a compact experimental model in symbolic computation, not as a formal proof system.
-
-It uses the following concepts as computational metaphors:
-
-1. **ATGC encoding**  
-   A four-symbol representation of byte-level information.
-
-2. **Gödel-like hashing**  
-   A large integer generated from SHA-512, functioning as a deterministic symbolic identifier.
-
-3. **Riemann-style coordinate notation**  
-   A formal coordinate label using the critical-line expression `Re(s)=1/2`.
-
-4. **Tau iteration**  
-   A finite arithmetic trajectory generated by repeated divisor counting.
-
-5. **Prime-bit branching**  
-   A binary rule determined by the primality of the tau path length.
-
-The program is deterministic and reproducible, but it does not evaluate the Riemann zeta function, compute actual zeta zeros, verify GRH, or establish any analytic number-theoretic theorem.
-
----
-
-## 12. Reproducibility
-
-For a fixed input prompt and identical program version, the output is deterministic.
-
-The following components determine the final state:
-
-```text
-Input prompt
-UTF-8 byte encoding
-ATGC mapping
-SHA-512 digest
-Symbolic zero index
-Tau iteration path
-Prime-bit decision
-SHA-256 next seed
-```
-
-Changing even one character in the input prompt will generally produce a different symbolic genome, zero index, tau path, prime bit, and next seed.
-
----
-
-## 13. Computational Complexity
-
-The current implementation of `tau(n)` is intentionally simple:
-
-```python
-sum(x % d == 0 for d in range(1, x + 1))
-```
-
-This has linear complexity in `x`:
-
-```text
-O(n)
-```
-
-Since the initial value is bounded by modular reductions involving `9973` and `997`, the computation remains small enough for interactive terminal use.
-
-A future optimized version could compute the divisor function through prime factorization, reducing the cost for larger values.
-
----
-
-## 14. Design Philosophy
-
-QED.sh is designed around three constraints:
-
-```text
-Minimality
-Determinism
-Symbolic expressiveness
-```
-
-The program is minimal because it is implemented as a single line.
-
-It is deterministic because every output field is fully determined by the input.
-
-It is symbolically expressive because it maps ordinary language into a structured mathematical-symbolic state.
-
-The project therefore treats computation as a form of symbolic unfolding:
-
-```text
-Prompt -> Structure -> State -> Seed -> Further Generation
-```
-
----
-
-## 15. Limitations
-
-QED.sh does not:
-
-- prove GRH;
-- compute actual Riemann zeta zeros;
-- evaluate the zeta function;
-- perform formal theorem proving;
-- store semantic knowledge;
-- guarantee semantic correctness of generated interpretations;
-- replace mathematical proof, peer review, or formal verification.
-
-Its purpose is to provide a reproducible symbolic encoding engine for experimental computation, prompt transformation, and compact generative systems.
-
----
-
-## 16. Possible Research Directions
-
-Future versions may explore:
-
-- optimized divisor-function computation;
-- explicit formal grammar for symbolic states;
-- recursive self-generation of shell programs;
-- deterministic prompt-to-program synthesis;
-- larger symbolic alphabets;
-- structured JSON schemas;
-- reproducible benchmark prompts;
-- formal comparison with Gödel encoding, hashing, and symbolic dynamics;
-- optional separation between mathematical metaphor and executable arithmetic.
-
----
-
-## 17. Minimal Citation Form
-
-If referring to this project in notes or experimental documentation, the following description is recommended:
-
-```text
-QED.sh is a one-line symbolic computation kernel that maps natural-language prompts into deterministic ATGC-encoded, hash-indexed, tau-iterated JSON states. Its use of Riemann-style notation is symbolic and does not constitute a proof of GRH.
-```
-
----
-
-## 18. License
-
-License information has not yet been specified.
-
-A recommended next step is to add a license file, such as:
-
-```text
-MIT License
-Apache License 2.0
-GPL-3.0
-```
-
-depending on the intended openness and reuse conditions of the project.
-
----
-
-## 19. Closing Formula
-
-```text
-Meaning is generated, not stored.
-Prompt -> ATGC -> SymbolicZero -> TauPath -> PrimeBit -> NextSeed
-SH,QED.
-```
+**SH,QED.**

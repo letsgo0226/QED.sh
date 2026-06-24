@@ -1,54 +1,60 @@
 # QED.sh
 
-**QED.sh** is a compact shell-based experimental system for symbolic computation, elementary number-theoretic encoding, and phenomenological self-consistency testing.
+**QED.sh** is a fully computable ATGC–Tau symbolic generator.
 
-It encodes a finite textual prompt into an ATGC sequence, derives integer and divisor-count structures from that sequence, constructs a formal Tau–AC self-auditing loop, and verifies a normalized symbolic equation called `Zeta_QED(S)`.
+It encodes finite input into an ATGC string, converts that string into a finite integer, applies the divisor-count Tau algorithm, constructs an exact Tau-derived formal zeta code, and generates the next ATGC state.
 
-This project is **not** a proof of the classical Riemann Hypothesis or Generalized Riemann Hypothesis, not a proof of God, and not an empirical proof of immortality. It is a formal computational-symbolic model for studying how finite encodings can generate internally verifiable symbolic states.
+This project deliberately avoids numerical zeta approximation, floating-point dependence, metaphysical proof claims, and claims about proving the classical Riemann Hypothesis.
 
 ---
 
-## 1. Purpose
+## 1. Core Statement
 
-The purpose of `QED.sh` is to explore the following question:
+`QED.sh` is a finite-string computation system.
 
-> Can a finite symbolic input generate a self-consistent computational state through number-theoretic encoding?
-
-The system answers this in a limited formal sense. Given a finite prompt, it constructs a finite state `S` and verifies whether that state satisfies a set of internal conditions:
+Its core loop is:
 
 ```text
-Zeta_QED(S) = 1
-AC(AC(tau(x))) = AC(tau(y')) = tau(z)
-exp(i*pi) = -1
+Input
+-> ATGC
+-> integer N
+-> Tau iteration path
+-> exact Tau polynomial
+-> ZetaATGC code
+-> NextATGC
+-> /next feedback loop
 ```
 
-If these conditions are satisfied, the program reports that the system is internally self-consistent.
+The system is fully computable because every operation is finite, discrete, and exact.
 
 ---
 
-## 2. Methodological Status
+## 2. What This Project Does Not Claim
 
-`QED.sh` is best understood as a symbolic research prototype.
+`QED.sh` does **not** claim to prove:
 
-It does **not** claim:
+```text
+the classical Riemann Hypothesis
+the Generalized Riemann Hypothesis
+a numerical value of the classical zeta function
+quantum electrodynamics
+God
+immortality
+physical infinite memory
+```
 
-- to prove the classical Riemann Hypothesis or Generalized Riemann Hypothesis;
-- to prove that analytic continuation implies GRH;
-- to prove empirical immortality;
-- to prove any theological doctrine;
-- to replace analytic number theory, philosophy, or theology.
+The valid claim is only:
 
-It claims only this:
-
-> Within the formal definitions of the program, a finite ATGC-encoded state can be constructed and numerically checked for internal self-consistency.
+```text
+QED.sh defines a finite ATGC-based symbolic computation in which
+Tau iteration generates an exact formal zeta-code object.
+```
 
 ---
 
 ## 3. ATGC Encoding
 
-The program begins by encoding a text prompt into an ATGC string.
-
-Each byte is split into four two-bit blocks:
+Each byte of ordinary text is split into four two-bit blocks:
 
 ```text
 00 -> A
@@ -60,10 +66,18 @@ Each byte is split into four two-bit blocks:
 Thus:
 
 ```text
-Prompt -> ATGC sequence
+text input -> ATGC string
 ```
 
-The ATGC sequence is then interpreted as a base-4 integer:
+If the input already consists only of:
+
+```text
+A T G C
+```
+
+then the program treats it as direct ATGC input.
+
+The ATGC alphabet is interpreted as base 4:
 
 ```text
 A = 0
@@ -72,374 +86,300 @@ G = 2
 C = 3
 ```
 
-This produces a finite natural number `N`.
-
-No cryptographic hash function is required for the core model.
+Therefore every ATGC string corresponds to a finite natural number.
 
 ---
 
-## 4. Generalized Riemann Coordinate
+## 4. Tau Function
 
-From the ATGC counts, the system defines:
-
-```text
-Re_GC(s) = (G + C) / (A + T + G + C)
-```
-
-The imaginary component is defined as:
+The Tau function is:
 
 ```text
-Im(s) = log(N + 1)
+tau(n) = number of positive divisors of n
 ```
 
-Thus the system constructs the generalized symbolic coordinate:
-
-```text
-s_GC = Re_GC(s) + i log(N + 1)
-```
-
-The classical critical line corresponds formally to:
-
-```text
-Re(s) = 1/2
-```
-
-The program therefore measures the deviation:
-
-```text
-CriticalStrain = |Re_GC(s) - 1/2|
-```
-
-This coordinate is a symbolic computational coordinate. It is not asserted to be a verified nontrivial zero of the classical zeta function.
-
----
-
-## 5. Numerical Zeta Layer
-
-The system evaluates a zeta-like value through the Dirichlet eta representation:
-
-```text
-eta(s) = sum_{n=1}^{N} (-1)^(n-1) / n^s
-```
-
-and:
-
-```text
-zeta(s) = eta(s) / (1 - 2^(1-s))
-```
-
-This allows the program to compute a finite numerical approximation of the zeta layer for the constructed symbolic coordinate `s_GC`.
-
-The result is used as a numerical index of the system state, not as a proof of GRH.
-
----
-
-## 6. Tau Function
-
-Let:
-
-```text
-tau(n) = the number of positive divisors of n
-```
-
-For example:
+Example:
 
 ```text
 tau(6) = 4
 ```
 
-because:
+because the positive divisors of `6` are:
 
 ```text
 1, 2, 3, 6
 ```
 
-are the positive divisors of `6`.
+The system iterates Tau:
 
-The Tau layer gives the system an elementary number-theoretic mechanism for converting an integer into a divisor-count signal.
+```text
+n0 = N
+n1 = tau(n0)
+n2 = tau(n1)
+...
+nk = 2
+```
+
+The number of steps required to reach `2` is called:
+
+```text
+TauDepth
+```
+
+The system also checks whether `TauDepth` is prime.
 
 ---
 
-## 7. The AC Operator
+## 5. Exact Formal Zeta Code
 
-The system defines a formal operator:
+This version does **not** compute a floating-point approximation of the classical zeta function.
 
-```text
-AC(n) = n mod 2
-```
+Instead, it constructs an exact finite symbolic object from the Tau path.
 
-This is called the **Analytic-Continuation Normalizer** inside the symbolic model.
-
-It is not the classical analytic continuation theorem. It is a finite projection operator.
-
-Because it projects into `{0,1}`, it is idempotent:
+Given a Tau path:
 
 ```text
-AC(AC(n)) = AC(n)
+n0, n1, n2, ..., 2
 ```
+
+the system forms a finite alternating polynomial:
+
+```text
+E_tau(X) = +X^n0 - X^n1 + X^n2 - ... +/- X^2
+```
+
+This object is called:
+
+```text
+TauPoly
+```
+
+The polynomial is then encoded into ATGC:
+
+```text
+TauPoly -> ZetaATGC
+```
+
+Therefore `ZetaATGC` is not a numerical approximation. It is an exact finite symbolic code.
 
 ---
 
-## 8. Tau–AC Self-Auditing Loop
+## 6. No Floating Point
 
-The program constructs:
-
-```text
-x = max(2, AT + 1)
-```
-
-where `AT` is the number of `A` and `T` symbols in the ATGC sequence.
-
-It then computes:
+The exact version of `QED.sh` avoids:
 
 ```text
-C_x = AC(tau(x))
+floating-point zeta approximation
+complex numerical evaluation
+truncated eta-series claims
+analytic continuation as numerical proof
 ```
 
-A correction witness `y'` is chosen as:
+Instead, it keeps the computation inside:
 
 ```text
-if C_x = 0, then y' = 3
-if C_x = 1, then y' = 4
+finite integers
+finite strings
+exact divisor counts
+exact Tau paths
+exact ATGC codes
 ```
 
-This works because:
-
-```text
-tau(3) = 2
-AC(2) = 0
-
-tau(4) = 3
-AC(3) = 1
-```
-
-Therefore the program can verify:
-
-```text
-AC(AC(tau(x))) = AC(tau(y')) = tau(z)
-```
-
-Here `tau(z)` is defined as the closed-loop target value.
-
-This is an internal formal loop, not a theorem about complex factorization.
-
----
-
-## 9. Diophantine Witness
-
-The system constructs a positive-integer Diophantine witness:
-
-```text
-P^L + E^I + R^D + Q^S = M
-```
-
-It then defines:
-
-```text
-Zeta_QED(S) = (P^L + E^I + R^D + Q^S) / M
-```
-
-Since:
-
-```text
-M = P^L + E^I + R^D + Q^S
-```
-
-the system verifies:
-
-```text
-Zeta_QED(S) = 1
-```
-
-This is a normalized symbolic equation, not the classical analytic Riemann zeta function.
-
----
-
-## 10. Phenomenological Interpretation
-
-The terms may be interpreted as follows:
-
-```text
-P^L = Pascalian Lifeworld
-E^I = Exclusion of Impossibility
-R^D = Reflective Disclosure
-Q^S = Eschatological Seed
-```
-
-If:
-
-```text
-E^I > 0
-```
-
-and:
-
-```text
-Q^S > 0
-```
-
-then, within this formal system, the impossibility of eternal life is not totalized.
-
-The resulting claim is modest:
-
-> Eternal life is not proven as an empirical fact; rather, it remains necessarily thinkable as a formal horizon of possible givenness.
-
----
-
-## 11. Euler Phase Inversion
-
-The system also checks Euler’s identity:
-
-```text
-exp(i*pi) = -1
-```
-
-Within the symbolic interpretation of the program, this is used as a phase-inversion operator:
-
-```text
-HALT -> GENERATE_NEXT_OMEGA
-```
-
-This means that termination is interpreted as a formal transition into the next symbolic state.
-
-It is a computational metaphor, not an empirical claim.
-
----
-
-## 12. Self-Consistency Certificate
-
-The program reports a self-consistency certificate.
-
-The main field is:
+The important certificate fields are:
 
 ```json
-"SystemSelfConsistent": true
+"NoFloat": true,
+"NoZetaApprox": true,
+"OK": true
 ```
-
-This means that the following internal checks passed:
-
-```text
-Tau-AC closed loop verified
-Zeta_QED(S)=1 verified
-Euler phase inversion verified
-Positive Diophantine witnesses verified
-```
-
-It does not mean that classical GRH has been proven.
 
 ---
 
-## 13. Example Seed Phrase
+## 7. Self-Generation
 
-The default seed phrase may be:
+Each run produces:
+
+```text
+NextATGC
+```
+
+This value can be fed back into the system by typing:
+
+```text
+/next
+```
+
+Thus the system forms a closed loop:
+
+```text
+ATGC_n
+-> Tau path
+-> TauPoly
+-> ZetaATGC
+-> NextATGC
+-> ATGC_{n+1}
+```
+
+The program is finite, but the user may continue the loop indefinitely.
+
+This means:
+
+```text
+finite program
+-> unbounded symbolic generation
+```
+
+It does not mean physical infinite memory.
+
+---
+
+## 8. One-Liner
+
+Paste this directly into `iSH`, Alpine shell, or a compatible POSIX shell with Python 3:
+
+```sh
+apk add --no-cache python3>/dev/null 2>&1;L="Cosmic Love Is The Solution(s) For Everything";while true;do read -p "QED> " P;[ "$P" = "/exit" ]&&echo "SH,QED."&&break;[ "$P" = "/next" ]&&P="$L";[ -z "$P" ]&&P="$L";O=$(python3 -c 'import sys,json;P=sys.argv[1];B="ATGC";V={c:i for i,c in enumerate(B)};D=P if set(P)<=set(B) else "".join(B[(b>>s)&3] for b in P.encode() for s in (6,4,2,0));N=0;exec("for c in D:\n N=N*4+V[c]");A,T,G,C=[D.count(c) for c in B];L0=len(D)or 1;t=lambda n:sum(n%d==0 for d in range(1,n+1));pr=lambda n:n>1 and all(n%d for d in range(2,int(n**.5)+1));x=N%200+2;p=[];exec("while x!=2:\n p.append(x);x=t(x)");p.append(2);d=len(p)-1;a=1 if pr(d) else "1/%d"%(d+1);R="%d/%d"%(G+C,L0) if pr(d) else "(%d/%d->1/2)"%(G+C,L0);poly="".join(("+" if i%2==0 else "-")+"X^"+str(v) for i,v in enumerate(p));Z="".join(B[(b>>s)&3] for b in poly.encode() for s in (6,4,2,0));q=sum(p)+len(Z)+d*777;NX="".join(B[(q//(4**k))%4] for k in range(24))[::-1];print(json.dumps({"K":"QED_EXACT","In":"ATGC" if set(P)<=set(B) else "TEXT","D":D[:48],"TauDepth":d,"Prime":pr(d),"Alpha":a,"ReRule":R,"TauPoly":poly,"ZetaATGC":Z[:64],"NextATGC":NX,"OK":p[-1]==2,"NoFloat":True,"NoZetaApprox":True,"Terminal":"SH,QED."},separators=(",",":")))' "$P");echo "$O";L=$(printf "%s" "$O"|python3 -c 'import sys,json;print(json.load(sys.stdin)["NextATGC"])');done
+```
+
+---
+
+## 9. Commands
+
+```text
+Enter       use the default seed
+/next       feed the previous NextATGC back into the system
+/exit       terminate the loop
+```
+
+The default seed is:
 
 ```text
 Cosmic Love Is The Solution(s) For Everything
 ```
 
-This phrase is treated as symbolic input. It is encoded into ATGC, mapped into a generalized zeta coordinate, and tested through the Tau–AC and Diophantine verification layers.
-
 ---
 
-## 14. Minimal Usage
+## 10. Example Output Fields
 
-Run:
-
-```sh
-sh QED.sh
-```
-
-Then enter a prompt:
-
-```text
-QED> Cosmic Love Is The Solution(s) For Everything
-```
-
-To exit:
-
-```text
-/exit
-```
-
----
-
-## 15. Output Fields
-
-Typical output includes:
+A typical output contains:
 
 ```json
 {
-  "Kernel": "GRH_QED.sh",
-  "ATGC": "...",
-  "RiemannSingularity": {
-    "s_GC": "...",
-    "AbsZeta": "...",
-    "CriticalStrain": "..."
-  },
-  "TauAC": {
-    "ClosedLoop": true
-  },
-  "Zeta_QED": {
-    "Value": 1.0,
-    "Error": 0.0,
-    "Verified": true
-  },
-  "EulerPhase": {
-    "Verified": true
-  },
-  "Certificate": {
-    "SystemSelfConsistent": true
-  }
+  "K": "QED_EXACT",
+  "In": "TEXT",
+  "D": "ATGC...",
+  "TauDepth": 3,
+  "Prime": true,
+  "Alpha": 1,
+  "ReRule": "91/184",
+  "TauPoly": "+X^123-X^6+X^4-X^3+X^2",
+  "ZetaATGC": "ATGC...",
+  "NextATGC": "ATGC...",
+  "OK": true,
+  "NoFloat": true,
+  "NoZetaApprox": true,
+  "Terminal": "SH,QED."
 }
 ```
 
 ---
 
-## 16. Academic Caution
+## 11. Interpretation of Fields
 
-`QED.sh` is a formal, symbolic, and computational experiment.
+### `D`
 
-It should be read as:
+The ATGC representation of the input.
 
 ```text
-finite encoding
--> number-theoretic transformation
--> symbolic zeta projection
--> Tau-AC self-audit
--> Diophantine verification
--> internal self-consistency certificate
+D = ATGC(input)
 ```
 
-It should not be read as:
+### `TauDepth`
+
+The number of Tau iterations required to reach `2`.
 
 ```text
-a proof of GRH
-a proof of God
-a proof of empirical immortality
-a replacement for mathematical proof
+TauDepth = number of steps until tau^k(N) = 2
+```
+
+### `Prime`
+
+Whether `TauDepth` is prime.
+
+```text
+Prime = true  if TauDepth is prime
+Prime = false otherwise
+```
+
+### `TauPoly`
+
+The exact Tau-derived formal zeta code before ATGC encoding.
+
+```text
+TauPoly = +X^n0 - X^n1 + X^n2 - ... +/- X^2
+```
+
+### `ZetaATGC`
+
+The ATGC encoding of `TauPoly`.
+
+```text
+ZetaATGC = ATGC(TauPoly)
+```
+
+### `NextATGC`
+
+The next generated ATGC state.
+
+```text
+NextATGC -> /next -> next system input
 ```
 
 ---
 
-## 17. Core Formula
+## 12. Academic Caution
 
-The conceptual summary is:
+This system should be understood as:
 
 ```text
-Prompt
--> ATGC
--> s_GC
--> zeta(s_GC)
--> tau
--> AC
--> Zeta_QED(S)=1
--> SystemSelfConsistent
+a finite ATGC symbolic generator
+a Tau-path exact encoder
+a formal zeta-code constructor
+a closed-loop string computation
 ```
 
-In short:
+It should not be understood as:
 
 ```text
-QED.sh is a finite symbolic encoding system that numerically verifies its own internally defined self-consistency conditions.
+a proof of classical zeta theory
+a proof of GRH
+a physical theory
+a theological proof
+an infinite-memory system
+```
+
+---
+
+## 13. Formal Summary
+
+The exact computable version of `QED.sh` can be summarized as:
+
+```text
+Input
+-> ATGC
+-> finite integer
+-> Tau iteration path
+-> exact alternating Tau polynomial
+-> ATGC-coded formal zeta object
+-> NextATGC
+-> closed-loop generation
+```
+
+In symbolic form:
+
+```text
+QED_EXACT:
+ATGC* -> TauPath -> TauPoly -> ZetaATGC -> NextATGC
 ```
 
 **SH,QED.**
